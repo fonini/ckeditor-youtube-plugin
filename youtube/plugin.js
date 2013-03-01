@@ -42,6 +42,20 @@
 										else{
 											this.getDialog().getContentElement('youtubePlugin', 'txtUrl').enable();
 										}
+									},
+									validate : function() {
+										if ( this.isEnabled() ){
+											if ( !this.getValue() )
+											{
+												alert( editor.lang.youtube.noCode );
+												return false;
+											}
+											else
+											if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 ){
+												alert( editor.lang.youtube.invalidEmbed );
+												return false;
+											}
+										}
 									}
 								},
 								{
@@ -52,11 +66,26 @@
 									id : 'txtUrl',
 									type : 'text',
 									label : editor.lang.youtube.txtUrl,
+									onChange : function ( api ){
+										if ( this.getValue().length > 0 ){
+											this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
+										}
+										else{
+											this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
+										}
+									},
 									validate : function() {
-										if ( !this.getValue() )
-										{
-											alert( editor.lang.youtube.invalidUrl );
-											return false;
+										if ( this.isEnabled() ){
+											if ( !this.getValue() )
+											{
+												alert( editor.lang.youtube.noCode );
+												return false;
+											}
+											else
+											if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 ){
+												alert( editor.lang.youtube.invalidEmbed );
+												return false;
+											}
 										}
 									}
 								}
@@ -66,11 +95,6 @@
 					onOk: function() {
 						var txtEmbed = this.getValueOf( 'youtubePlugin', 'txtEmbed');
 
-						if ( txtEmbed.length === 0 || txtEmbed.indexOf( 'http://' ) === -1 ){
-							alert(editor.lang.youtube.invalidEmbed);
-							return false;
-						}
-
 						var instance = this.getParentEditor();
 						instance.insertHtml(txtEmbed);
 					}
@@ -79,5 +103,3 @@
 		}
 	});
 })();
-
-// <iframe width="640" height="360" src="http://www.youtube.com/embed/QBiyNUa_wAg?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
