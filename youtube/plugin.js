@@ -7,7 +7,7 @@
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
 	{
-		lang: ['en'],
+		lang: [ 'en' ],
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube' ) );
@@ -63,31 +63,50 @@
 									html : editor.lang.youtube.or
 								},
 								{
-									id : 'txtUrl',
-									type : 'text',
-									label : editor.lang.youtube.txtUrl,
-									onChange : function ( api ){
-										if ( this.getValue().length > 0 ){
-											this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
-										}
-										else{
-											this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
-										}
-									},
-									validate : function() {
-										if ( this.isEnabled() ){
-											if ( !this.getValue() )
-											{
-												alert( editor.lang.youtube.noCode );
-												return false;
+									type : 'hbox',
+									widths : [ '70%', '15%', '15%' ],
+									children :
+									[
+										{
+											id : 'txtUrl',
+											type : 'text',
+											label : editor.lang.youtube.txtUrl,
+											onChange : function ( api ){
+												if ( this.getValue().length > 0 ){
+													this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
+												}
+												else{
+													this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
+												}
+											},
+											validate : function() {
+												if ( this.isEnabled() ){
+													if ( !this.getValue() )
+													{
+														alert( editor.lang.youtube.noCode );
+														return false;
+													}
+													else
+													if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 ){
+														alert( editor.lang.youtube.invalidEmbed );
+														return false;
+													}
+												}
 											}
-											else
-											if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 ){
-												alert( editor.lang.youtube.invalidEmbed );
-												return false;
-											}
+										},
+										{
+											type : 'text',
+											id : 'txtWidth',
+											width : '60px',
+											label : editor.lang.youtube.txtWidth
+										},
+										{
+											type : 'text',
+											id : 'txtHeight',
+											width : '60px',
+											label : editor.lang.youtube.txtHeight
 										}
-									}
+									]
 								}
 							]
 						}
