@@ -34,7 +34,15 @@
 									id : 'txtEmbed',
 									type : 'textarea',
 									label : editor.lang.youtube.txtEmbed,
-									autofocus : 'autofocus'
+									autofocus : 'autofocus',
+									onChange : function ( api ){
+										if ( this.getValue().length > 0 ){
+											this.getDialog().getContentElement('youtubePlugin', 'txtUrl').disable();
+										}
+										else{
+											this.getDialog().getContentElement('youtubePlugin', 'txtUrl').enable();
+										}
+									}
 								},
 								{
 									type : 'html',
