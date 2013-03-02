@@ -88,7 +88,7 @@
 													}
 													else
 													if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 ){
-														alert( editor.lang.youtube.invalidEmbed );
+														alert( editor.lang.youtube.invalidUrl );
 														return false;
 													}
 												}
@@ -98,13 +98,15 @@
 											type : 'text',
 											id : 'txtWidth',
 											width : '60px',
-											label : editor.lang.youtube.txtWidth
+											label : editor.lang.youtube.txtWidth,
+											default : '640'
 										},
 										{
 											type : 'text',
 											id : 'txtHeight',
 											width : '60px',
-											label : editor.lang.youtube.txtHeight
+											label : editor.lang.youtube.txtHeight,
+											default : '360'
 										}
 									]
 								}
@@ -120,7 +122,10 @@
 						}
 						else {
 							var url = this.getValueOf( 'youtubePlugin', 'txtUrl' );
-							content = '<iframe width="640" height="360" src="' + url + '" frameborder="0" allowfullscreen></iframe>';
+							var width = this.getValueOf( 'youtubePlugin', 'txtWidth' );
+							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
+
+							content = '<iframe width="' + width + '" height="' + height + '" src="' + url + '" frameborder="0" allowfullscreen></iframe>';
 						}
 
 						var instance = this.getParentEditor();
