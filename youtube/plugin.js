@@ -19,7 +19,7 @@
 				icon: this.path + 'images/icon.png'
 			});
 
-			CKEDITOR.dialog.add( 'youtube', function (instance)
+			CKEDITOR.dialog.add( 'youtube', function ( instance )
 			{
 				return {
 					title : editor.lang.youtube.title,
@@ -37,10 +37,10 @@
 									autofocus : 'autofocus',
 									onChange : function ( api ){
 										if ( this.getValue().length > 0 ){
-											this.getDialog().getContentElement('youtubePlugin', 'txtUrl').disable();
+											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).disable();
 										}
 										else{
-											this.getDialog().getContentElement('youtubePlugin', 'txtUrl').enable();
+											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).enable();
 										}
 									},
 									validate : function() {
@@ -60,7 +60,7 @@
 								},
 								{
 									type : 'html',
-									html : editor.lang.youtube.or
+									html : editor.lang.youtube.or + '<hr>'
 								},
 								{
 									type : 'hbox',
@@ -73,10 +73,10 @@
 											label : editor.lang.youtube.txtUrl,
 											onChange : function ( api ){
 												if ( this.getValue().length > 0 ){
-													this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
+													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
 												}
-												else{
-													this.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
+												else {
+													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
 												}
 											},
 											validate : function() {
@@ -112,10 +112,19 @@
 						}
 					],
 					onOk: function() {
-						var txtEmbed = this.getValueOf( 'youtubePlugin', 'txtEmbed');
+						var content = '';
+
+						if ( this.getContentElement( 'youtubePlugin', 'txtEmbed' ).isEnabled() )
+						{
+							content = this.getValueOf( 'youtubePlugin', 'txtEmbed' );
+						}
+						else {
+							var url = this.getValueOf( 'youtubePlugin', 'txtUrl' );
+							content = '<iframe width="640" height="360" src="' + url + '" frameborder="0" allowfullscreen></iframe>';
+						}
 
 						var instance = this.getParentEditor();
-						instance.insertHtml(txtEmbed);
+						instance.insertHtml( content );
 					}
 				};
 			});
