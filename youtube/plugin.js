@@ -43,7 +43,7 @@
 											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).enable();
 										}
 									},
-									validate : function() {
+									validate : function () {
 										if ( this.isEnabled() ){
 											if ( !this.getValue() )
 											{
@@ -79,7 +79,7 @@
 													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
 												}
 											},
-											validate : function() {
+											validate : function () {
 												if ( this.isEnabled() ){
 													if ( !this.getValue() )
 													{
@@ -99,14 +99,42 @@
 											id : 'txtWidth',
 											width : '60px',
 											label : editor.lang.youtube.txtWidth,
-											default : '640'
+											default : '640',
+											validate : function () {
+												if ( this.getValue() ){
+													var width = parseInt ( this.getValue() ) || 0;
+
+													if ( width === 0 ) {
+														alert( editor.lang.youtube.invalidWidth );
+														return false;	
+													}
+												}
+												else {
+													alert( editor.lang.youtube.noWidth );
+													return false;
+												}
+											}
 										},
 										{
 											type : 'text',
 											id : 'txtHeight',
 											width : '60px',
 											label : editor.lang.youtube.txtHeight,
-											default : '360'
+											default : '360',
+											validate : function () {
+												if ( this.getValue() ){
+													var height = parseInt ( this.getValue() ) || 0;
+
+													if ( height === 0 ) {
+														alert( editor.lang.youtube.invalidHeight );
+														return false;	
+													}
+												}
+												else {
+													alert( editor.lang.youtube.noHeight );
+													return false;
+												}
+											}
 										}
 									]
 								}

@@ -8,5 +8,9 @@ CKEDITOR.plugins.setLang('youtube', 'pt', {
 	noCode : 'Você precisa informar um código embed ou uma URL',
 	invalidEmbed : 'O código informado não parece ser válido',
 	invalidUrl : 'A URL informada não parece ser válida',
-	or : 'ou'
+	or : 'ou',
+	noWidth : 'Você deve informar a largura do vídeo',
+	invalidWidth : 'Informe uma largura válida',
+	noHeight : 'Você deve informar a altura do vídeo',
+	invalidHeight : 'Informe uma altura válida'
 });
