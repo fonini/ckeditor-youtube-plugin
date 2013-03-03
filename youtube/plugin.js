@@ -35,8 +35,8 @@
 									type : 'textarea',
 									label : editor.lang.youtube.txtEmbed,
 									autofocus : 'autofocus',
-									onChange : function ( api ){
-										if ( this.getValue().length > 0 ){
+									onChange : function ( api ) {
+										if ( this.getValue().length > 0 ) {
 											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).disable();
 										}
 										else{
@@ -44,7 +44,7 @@
 										}
 									},
 									validate : function () {
-										if ( this.isEnabled() ){
+										if ( this.isEnabled() ) {
 											if ( !this.getValue() )
 											{
 												alert( editor.lang.youtube.noCode );
@@ -71,8 +71,8 @@
 											id : 'txtUrl',
 											type : 'text',
 											label : editor.lang.youtube.txtUrl,
-											onChange : function ( api ){
-												if ( this.getValue().length > 0 ){
+											onChange : function ( api ) {
+												if ( this.getValue().length > 0 ) {
 													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
 												}
 												else {
@@ -80,7 +80,7 @@
 												}
 											},
 											validate : function () {
-												if ( this.isEnabled() ){
+												if ( this.isEnabled() ) {
 													if ( !this.getValue() )
 													{
 														alert( editor.lang.youtube.noCode );
@@ -101,7 +101,7 @@
 											label : editor.lang.youtube.txtWidth,
 											default : '640',
 											validate : function () {
-												if ( this.getValue() ){
+												if ( this.getValue() ) {
 													var width = parseInt ( this.getValue() ) || 0;
 
 													if ( width === 0 ) {
@@ -122,7 +122,7 @@
 											label : editor.lang.youtube.txtHeight,
 											default : '360',
 											validate : function () {
-												if ( this.getValue() ){
+												if ( this.getValue() ) {
 													var height = parseInt ( this.getValue() ) || 0;
 
 													if ( height === 0 ) {
