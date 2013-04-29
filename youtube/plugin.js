@@ -99,7 +99,7 @@
 											id : 'txtWidth',
 											width : '60px',
 											label : editor.lang.youtube.txtWidth,
-											default : '640',
+											'default' : '640',
 											validate : function () {
 												if ( this.getValue() ) {
 													var width = parseInt ( this.getValue() ) || 0;
@@ -120,7 +120,7 @@
 											id : 'txtHeight',
 											width : '60px',
 											label : editor.lang.youtube.txtHeight,
-											default : '360',
+											'default' : '360',
 											validate : function () {
 												if ( this.getValue() ) {
 													var height = parseInt ( this.getValue() ) || 0;
