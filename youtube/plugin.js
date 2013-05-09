@@ -23,7 +23,7 @@
 			{
 				return {
 					title : editor.lang.youtube.title,
-					minWidth : 550,
+					minWidth : 500,
 					minHeight : 200,
 					contents :
 						[{
@@ -137,6 +137,41 @@
 											}
 										}
 									]
+								},
+								{
+									type : 'hbox',
+									widths : [ '55%', '45%' ],
+									children :
+									[
+										{
+											id : 'chkRelated',
+											type : 'checkbox',
+											'default' : 'checked',
+											label : editor.lang.youtube.chkRelated
+										},
+										{
+											id : 'chkSecure',
+											type : 'checkbox',
+											label : editor.lang.youtube.chkSecure
+										}
+									]
+								},
+								{
+									type : 'hbox',
+									widths : [ '55%', '45%' ],
+									children :
+									[
+										{
+											id : 'chkPrivacy',
+											type : 'checkbox',
+											label : editor.lang.youtube.chkPrivacy
+										},
+										{
+											id : 'chkOlderCode',
+											type : 'checkbox',
+											label : editor.lang.youtube.chkOlderCode
+										}
+									]
 								}
 							]
 						}
@@ -152,11 +187,53 @@
 							var url = this.getValueOf( 'youtubePlugin', 'txtUrl' );
 							var width = this.getValueOf( 'youtubePlugin', 'txtWidth' );
 							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
+							var related = true;
 							
 							url = url.replace('watch?v=', 'embed/');
+							
+							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
+							{
+								url += '?rel=0';
+								related = false;
+							}
+							
+							if ( this.getContentElement( 'youtubePlugin', 'chkSecure' ).getValue() === true )
+							{
+								url = url.replace('http://', 'https://');
+							}
+							
+							if ( this.getContentElement( 'youtubePlugin', 'chkPrivacy' ).getValue() === true )
+							{
+								url = url.replace('youtube.com/', 'youtube-nocookie.com/');
+							}
+							
+							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
+							{
+								url = url.replace('embed/', 'v/');
+								url = url.replace(/&/g, '&amp;');
+								
+								if (related === true){
+									url += '?';								
+								}
 
-							content = '<iframe width="' + width + '" height="' + height + '" src="' + url + '" frameborder="0" allowfullscreen></iframe>';
+								url += 'hl=pt_BR&amp;version=3';
+							
+								content = '<object width="' + width + '" height="' + height + '">';
+								content += '<param name="movie" value="' + url + '"></param>';
+								content += '<param name="allowFullScreen" value="true"></param>';
+								content += '<param name="allowscriptaccess" value="always"></param>';
+								content += '<embed src="' + url + '" type="application/x-shockwave-flash" ';
+								content += 'width="' + width + '" height="' + height + '" allowscriptaccess="always" ';
+								content += 'allowfullscreen="true"></embed>';
+								content += '</object>';
+							}
+							else {
+								content = '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ';
+								content += 'frameborder="0" allowfullscreen></iframe>';	
+							}
 						}
+						
+						console.log(content);
 
 						var instance = this.getParentEditor();
 						instance.insertHtml( content );
