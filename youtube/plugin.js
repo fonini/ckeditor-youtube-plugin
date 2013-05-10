@@ -189,7 +189,7 @@
 							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
 							var related = true;
 
-							url = url.replace('watch?v=', 'embed/').replace('youtu.be', 'youtube.com/embed');
+							var video = url.match(/(v=|\/)([\w-]+)(&.+)?$/);
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
 							{
@@ -199,13 +199,21 @@
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkSecure' ).getValue() === true )
 							{
-								url = url.replace('http://', 'https://');
+								url = 'https://';
+							}
+							else {
+								url = 'http://';
 							}
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkPrivacy' ).getValue() === true )
 							{
-								url = url.replace('youtube.com/', 'youtube-nocookie.com/');
+								url += 'www.youtube-nocookie.com/';
 							}
+							else {
+								url += 'www.youtube.com/';
+							}
+							
+							url += 'embed/' + video[2];
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
 							{
