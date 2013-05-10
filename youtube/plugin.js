@@ -188,36 +188,36 @@
 							var width = this.getValueOf( 'youtubePlugin', 'txtWidth' );
 							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
 							var related = true;
-							
-							url = url.replace('watch?v=', 'embed/');
-							
+
+							url = url.replace('watch?v=', 'embed/').replace('youtu.be', 'youtube.com/embed');
+
 							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
 							{
 								url += '?rel=0';
 								related = false;
 							}
-							
+
 							if ( this.getContentElement( 'youtubePlugin', 'chkSecure' ).getValue() === true )
 							{
 								url = url.replace('http://', 'https://');
 							}
-							
+
 							if ( this.getContentElement( 'youtubePlugin', 'chkPrivacy' ).getValue() === true )
 							{
 								url = url.replace('youtube.com/', 'youtube-nocookie.com/');
 							}
-							
+
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
 							{
 								url = url.replace('embed/', 'v/');
 								url = url.replace(/&/g, '&amp;');
-								
+
 								if (related === true){
 									url += '?';								
 								}
 
 								url += 'hl=pt_BR&amp;version=3';
-							
+
 								content = '<object width="' + width + '" height="' + height + '">';
 								content += '<param name="movie" value="' + url + '"></param>';
 								content += '<param name="allowFullScreen" value="true"></param>';
