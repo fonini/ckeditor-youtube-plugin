@@ -2,21 +2,22 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <contato@fonini.net>
-* @version 0.3
+* @version 0.4
 */
-( function() {
+( function () {
 	CKEDITOR.plugins.add( 'youtube',
 	{
 		lang: [ 'en', 'pt' ],
-		init: function( editor )
+		init: function ( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube' ) );
 
 			editor.ui.addButton( 'youtube',
 			{
-				label: editor.lang.youtube.button,
-				command: 'youtube',
-				icon: this.path + 'images/icon.png'
+				label : editor.lang.youtube.button,
+				toolbar : 'insert',
+				command : 'youtube',
+				icon : this.path + 'images/icon.png'
 			});
 
 			CKEDITOR.dialog.add( 'youtube', function ( instance )
