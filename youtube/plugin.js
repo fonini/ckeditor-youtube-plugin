@@ -191,12 +191,6 @@
 
 							var video = url.match(/(v=|\/)([\w-]+)(&.+)?$/);
 
-							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
-							{
-								url += '?rel=0';
-								related = false;
-							}
-
 							if ( this.getContentElement( 'youtubePlugin', 'chkSecure' ).getValue() === true )
 							{
 								url = 'https://';
@@ -214,6 +208,13 @@
 							}
 							
 							url += 'embed/' + video[2];
+
+							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
+							{
+								url += '?rel=0';
+								related = false;
+
+							}
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
 							{
