@@ -35,23 +35,28 @@
 									type : 'textarea',
 									label : editor.lang.youtube.txtEmbed,
 									autofocus : 'autofocus',
-									onChange : function ( api ) {
-										if ( this.getValue().length > 0 ) {
+									onChange : function ( api )
+									{
+										if ( this.getValue().length > 0 )
+										{
 											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).disable();
 										}
-										else{
+										else {
 											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).enable();
 										}
 									},
-									validate : function () {
-										if ( this.isEnabled() ) {
+									validate : function ()
+									{
+										if ( this.isEnabled() )
+										{
 											if ( !this.getValue() )
 											{
 												alert( editor.lang.youtube.noCode );
 												return false;
 											}
 											else
-											if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 ){
+											if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 )
+											{
 												alert( editor.lang.youtube.invalidEmbed );
 												return false;
 											}
@@ -71,23 +76,28 @@
 											id : 'txtUrl',
 											type : 'text',
 											label : editor.lang.youtube.txtUrl,
-											onChange : function ( api ) {
-												if ( this.getValue().length > 0 ) {
+											onChange : function ( api )
+											{
+												if ( this.getValue().length > 0 )
+												{
 													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
 												}
 												else {
 													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
 												}
 											},
-											validate : function () {
-												if ( this.isEnabled() ) {
+											validate : function ()
+											{
+												if ( this.isEnabled() )
+												{
 													if ( !this.getValue() )
 													{
 														alert( editor.lang.youtube.noCode );
 														return false;
 													}
 													else
-													if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 ){
+													if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 )
+													{
 														alert( editor.lang.youtube.invalidUrl );
 														return false;
 													}
@@ -100,11 +110,14 @@
 											width : '60px',
 											label : editor.lang.youtube.txtWidth,
 											'default' : '640',
-											validate : function () {
-												if ( this.getValue() ) {
+											validate : function ()
+											{
+												if ( this.getValue() )
+												{
 													var width = parseInt ( this.getValue() ) || 0;
 
-													if ( width === 0 ) {
+													if ( width === 0 )
+													{
 														alert( editor.lang.youtube.invalidWidth );
 														return false;	
 													}
@@ -121,11 +134,14 @@
 											width : '60px',
 											label : editor.lang.youtube.txtHeight,
 											'default' : '360',
-											validate : function () {
-												if ( this.getValue() ) {
+											validate : function ()
+											{
+												if ( this.getValue() )
+												{
 													var height = parseInt ( this.getValue() ) || 0;
 
-													if ( height === 0 ) {
+													if ( height === 0 )
+													{
 														alert( editor.lang.youtube.invalidHeight );
 														return false;	
 													}
@@ -176,7 +192,8 @@
 							]
 						}
 					],
-					onOk: function() {
+					onOk: function()
+					{
 						var content = '';
 
 						if ( this.getContentElement( 'youtubePlugin', 'txtEmbed' ).isEnabled() )
@@ -206,7 +223,7 @@
 							else {
 								url += 'www.youtube.com/';
 							}
-							
+
 							url += 'embed/' + video[2];
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
@@ -221,7 +238,8 @@
 								url = url.replace('embed/', 'v/');
 								url = url.replace(/&/g, '&amp;');
 
-								if (related === true){
+								if (related === true)
+								{
 									url += '?';								
 								}
 
