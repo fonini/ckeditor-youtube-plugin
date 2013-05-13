@@ -2,13 +2,13 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <contato@fonini.net>
-* @version 0.4
+* @version 0.5
 */
-( function () {
+( function() {
 	CKEDITOR.plugins.add( 'youtube',
 	{
 		lang: [ 'en', 'pt' ],
-		init: function ( editor )
+		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube' ) );
 
@@ -97,7 +97,7 @@
 														return false;
 													}
 													else
-													if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 )
+													if ( this.getValue().length === 0 || ytVidId(this.getValue()) === false )
 													{
 														alert( editor.lang.youtube.invalidUrl );
 														return false;
@@ -269,3 +269,16 @@
 		}
 	});
 })();
+
+
+/**
+ * JavaScript function to match (and return) the video Id 
+ * of any valid Youtube Url, given as input string.
+ * @author: Stephan Schmitz <eyecatchup@gmail.com>
+ * @url: http://stackoverflow.com/a/10315969/624466
+ */
+function ytVidId( url )
+{
+	var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+	return ( url.match( p ) ) ? RegExp.$1 : false;
+}
