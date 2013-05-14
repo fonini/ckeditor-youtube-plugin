@@ -22,6 +22,8 @@
 
 			CKEDITOR.dialog.add( 'youtube', function ( instance )
 			{
+				var video;
+
 				return {
 					title : editor.lang.youtube.title,
 					minWidth : 500,
@@ -96,11 +98,14 @@
 														alert( editor.lang.youtube.noCode );
 														return false;
 													}
-													else
-													if ( this.getValue().length === 0 || ytVidId(this.getValue()) === false )
-													{
-														alert( editor.lang.youtube.invalidUrl );
-														return false;
+													else{
+														video = ytVidId(this.getValue());
+
+														if ( this.getValue().length === 0 ||  video === false)
+														{
+															alert( editor.lang.youtube.invalidUrl );
+															return false;
+														}
 													}
 												}
 											}
@@ -202,12 +207,10 @@
 							content = this.getValueOf( 'youtubePlugin', 'txtEmbed' );
 						}
 						else {
-							var url = this.getValueOf( 'youtubePlugin', 'txtUrl' );
+							var url;
 							var width = this.getValueOf( 'youtubePlugin', 'txtWidth' );
 							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
 							var related = true;
-
-							var video = url.match(/(v=|\/)([\w-]+)(&.+)?$/);
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkSecure' ).getValue() === true )
 							{
@@ -225,7 +228,7 @@
 								url += 'www.youtube.com/';
 							}
 
-							url += 'embed/' + video[2];
+							url += 'embed/' + video;
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
 							{
