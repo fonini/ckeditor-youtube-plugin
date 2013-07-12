@@ -60,7 +60,7 @@
 												return false;
 											}
 											else
-											if ( this.getValue().length === 0 || this.getValue().indexOf( 'http://' ) === -1 )
+											if ( this.getValue().length === 0 || this.getValue().indexOf( '//' ) === -1 )
 											{
 												alert( editor.lang.youtube.invalidEmbed );
 												return false;
