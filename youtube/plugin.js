@@ -10,9 +10,11 @@
 		lang: [ 'en', 'pt' ],
 		init: function( editor )
 		{
-			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube' ) );
+			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
+				allowedContent: 'iframe[!width,!height,!src,!frameborder,!allowfullscreen]'
+			}));
 
-			editor.ui.addButton( 'youtube',
+			editor.ui.addButton( 'Youtube',
 			{
 				label : editor.lang.youtube.button,
 				toolbar : 'insert',
