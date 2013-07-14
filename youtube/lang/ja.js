@@ -6,7 +6,7 @@ CKEDITOR.plugins.setLang('youtube', 'ja', {
 	txtWidth : '幅',
 	txtHeight : '高さ',
 	chkRelated : '動画が終わったら関連動画を表示する',
-	chkSecure : 'HTTPSを使用する',
+	txtStartAt : 'Start at',
 	chkPrivacy : 'プライバシー強化モードを有効にする',
 	chkOlderCode : '以前の埋め込みコードを使用する',
 	noCode : '埋め込みコードまたはURLを入力してください',
@@ -16,5 +16,6 @@ CKEDITOR.plugins.setLang('youtube', 'ja', {
 	noWidth : '幅を指定してください',
 	invalidWidth : '幅指定に誤りがあります',
 	noHeight : '高さを指定してください',
-	invalidHeight : '高さ指定に誤りがあります'
+	invalidHeight : '高さ指定に誤りがあります',
+	invalidTime : 'Inform a valid start time'
 });

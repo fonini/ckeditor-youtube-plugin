@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <contato@fonini.net>
-* @version 0.5
+* @version 1.0
 */
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
@@ -11,7 +11,7 @@
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
-				allowedContent: 'iframe[!width,!height,!src,!frameborder,!allowfullscreen]'
+				allowedContent: 'iframe[!width,!height,!src,!frameborder,!allowfullscreen]; object param[*]'
 			}));
 
 			editor.ui.addButton( 'Youtube',
@@ -174,9 +174,9 @@
 											label : editor.lang.youtube.chkRelated
 										},
 										{
-											id : 'chkSecure',
+											id : 'chkOlderCode',
 											type : 'checkbox',
-											label : editor.lang.youtube.chkSecure
+											label : editor.lang.youtube.chkOlderCode
 										}
 									]
 								},
@@ -191,9 +191,22 @@
 											label : editor.lang.youtube.chkPrivacy
 										},
 										{
-											id : 'chkOlderCode',
-											type : 'checkbox',
-											label : editor.lang.youtube.chkOlderCode
+											id : 'txtStartAt',
+											type : 'text',
+											label : editor.lang.youtube.txtStartAt,
+											validate : function ()
+											{
+												if ( this.getValue() )
+												{
+													var str = this.getValue();
+													
+													if ( !/^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/i.test( str ) )
+													{
+														alert( editor.lang.youtube.invalidTime );
+														return false;
+													}
+												}
+											}
 										}
 									]
 								}
@@ -209,18 +222,9 @@
 							content = this.getValueOf( 'youtubePlugin', 'txtEmbed' );
 						}
 						else {
-							var url;
+							var url = '//', params = [], startSecs;
 							var width = this.getValueOf( 'youtubePlugin', 'txtWidth' );
 							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
-							var related = true;
-
-							if ( this.getContentElement( 'youtubePlugin', 'chkSecure' ).getValue() === true )
-							{
-								url = 'https://';
-							}
-							else {
-								url = 'http://';
-							}
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkPrivacy' ).getValue() === true )
 							{
@@ -234,9 +238,14 @@
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
 							{
-								url += '?rel=0';
-								related = false;
+								params.push('rel=0');
+							}
 
+							startSecs = this.getValueOf( 'youtubePlugin', 'txtStartAt' );
+							if ( startSecs ){
+								var seconds = hmsToSeconds( startSecs );
+
+								params.push('start=' + seconds);
 							}
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
@@ -244,9 +253,9 @@
 								url = url.replace('embed/', 'v/');
 								url = url.replace(/&/g, '&amp;');
 
-								if (related === true)
+								if ( params.length == 0 )
 								{
-									url += '?';								
+									url += '?';
 								}
 
 								url += 'hl=pt_BR&amp;version=3';
@@ -261,6 +270,11 @@
 								content += '</object>';
 							}
 							else {
+								if ( params.length > 0 )
+								{
+									url = url + '?' + params.join( '&' );
+								}
+
 								content = '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ';
 								content += 'frameborder="0" allowfullscreen></iframe>';	
 							}
@@ -286,4 +300,20 @@ function ytVidId( url )
 {
 	var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 	return ( url.match( p ) ) ? RegExp.$1 : false;
+}
+
+/** 
+ * Converts time in hms format to seconds only
+ */
+function hmsToSeconds( time )
+{
+	var arr = time.split(':'), s = 0, m = 1;
+
+	while (arr.length > 0)
+	{
+		s += m * parseInt(arr.pop(), 10);
+		m *= 60;
+	}
+
+	return s;
 }
