@@ -14,7 +14,7 @@ CKEDITOR.plugins.setLang('youtube', 'hu', {
 	invalidUrl : 'A megadott URL érvénytelen',
 	or : 'vagy',
 	noWidth : 'A szélesség megadása kötelező',
-	invalidWidth : 'Érvényes magasságot adjon meg',
+	invalidWidth : 'Érvényes szélességet adjon meg',
 	noHeight : 'A magasság megadása kötelező',
 	invalidHeight : 'Érvényes magasságot adjon meg',
 	invalidTime : 'Érvényes kezdő időpontot adjon meg'
