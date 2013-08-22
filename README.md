@@ -23,5 +23,12 @@ config.extraPlugins = 'youtube';
 If everything is ok, a Youtube icon should appear on the CKEditor toolbar. Click it,
 paste your embed code or video URL and the video will be inserted.
 
+## Translators
+Thanks to those who helped translate the plugin
+
+ * Karmacsi Gábor (hu)
+ * Francesco Zanoni (it)
+ * Yayoshi Nobuhide (ja)
+
 
 [![Licensed under the WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-2.png "Licensed under the WTFPL")](http://www.wtfpl.net)
