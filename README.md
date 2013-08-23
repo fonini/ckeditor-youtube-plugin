@@ -26,31 +26,31 @@ The default options can be overriden on config.js.
 
 Video width:
 
-```js
+```
 config.youtube_width = '640';
 ```
 
 Video height:
 
-```js
+```
 config.youtube_height = '480';
 ```
 
 Show related videos:
 
-```js
+```
 config.youtube_related = true;
 ```
 
 Use old embed code:
 
-```js
+```
 config.youtube_older = false;
 ```
 
 Enable privacy-enhanced mode:
 
-```js
+```
 config.youtube_privacy = false;
 ```
 
