@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <contato@fonini.net>
-* @version 1.0.2
+* @version 1.0.3
 */
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
@@ -117,7 +117,7 @@
 											id : 'txtWidth',
 											width : '60px',
 											label : editor.lang.youtube.txtWidth,
-											'default' : '640',
+											'default' : editor.config.youtube_width != null ? editor.config.youtube_width : '640',
 											validate : function ()
 											{
 												if ( this.getValue() )
@@ -141,7 +141,7 @@
 											id : 'txtHeight',
 											width : '60px',
 											label : editor.lang.youtube.txtHeight,
-											'default' : '360',
+											'default' : editor.config.youtube_height != null ? editor.config.youtube_height : '360',
 											validate : function ()
 											{
 												if ( this.getValue() )
@@ -170,12 +170,13 @@
 										{
 											id : 'chkRelated',
 											type : 'checkbox',
-											'default' : 'checked',
+											'default' : editor.config.youtube_related != null ? editor.config.youtube_related : true,
 											label : editor.lang.youtube.chkRelated
 										},
 										{
 											id : 'chkOlderCode',
 											type : 'checkbox',
+											'default' : editor.config.youtube_older != null ? editor.config.youtube_older : false,
 											label : editor.lang.youtube.chkOlderCode
 										}
 									]
@@ -188,7 +189,8 @@
 										{
 											id : 'chkPrivacy',
 											type : 'checkbox',
-											label : editor.lang.youtube.chkPrivacy
+											label : editor.lang.youtube.chkPrivacy,
+											'default' : editor.config.youtube_privacy != null ? editor.config.youtube_privacy : false,
 										},
 										{
 											id : 'txtStartAt',

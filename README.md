@@ -17,7 +17,43 @@ Follow these steps:
  2. Extract the downloaded file into the CKEditor's **plugins** folder.
  3. Enable the plugin by changing or adding the extraPlugins line in your configuration (config.js):
 
-config.extraPlugins = 'youtube';
+    ````
+    config.extraPlugins = 'youtube';
+    ````
+    
+## Configuration
+The default options can be overriden on config.js.
+
+Video width:
+
+```js
+config.youtube_width = '640';
+```
+
+Video height:
+
+```js
+config.youtube_height = '480';
+```
+
+Show related videos:
+
+```js
+config.youtube_related = true;
+```
+
+Use old embed code:
+
+```js
+config.youtube_older = false;
+```
+
+Enable privacy-enhanced mode:
+
+```js
+config.youtube_privacy = false;
+```
+
 
 ## How to use
 If everything is ok, a Youtube icon should appear on the CKEditor toolbar. Click it,
