@@ -7,7 +7,7 @@
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
 	{
-		lang: [ 'en', 'pt', 'ja', 'hu', 'it' ],
+		lang: [ 'en', 'pt', 'ja', 'hu', 'it', 'fr' ],
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {

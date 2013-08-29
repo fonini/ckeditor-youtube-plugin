@@ -62,6 +62,7 @@ paste your embed code or video URL and the video will be inserted.
 ## Translators
 Thanks to those who helped translate the plugin
 
+ * BiomanRouge (fr)
  * Karmacsi Gábor (hu)
  * Francesco Zanoni (it)
  * Yayoshi Nobuhide (ja)
