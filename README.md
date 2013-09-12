@@ -66,8 +66,8 @@ Thanks to those who helped translate the plugin
  * Karmacsi Gábor (hu)
  * Francesco Zanoni (it)
  * Yayoshi Nobuhide (ja)
- * Çağdaş Yiğit (tr)
  * Alexander Ustimenko (ru)
+ * Çağdaş Yiğit (tr)
 
 
 [![Licensed under the WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-2.png "Licensed under the WTFPL")](http://www.wtfpl.net)
