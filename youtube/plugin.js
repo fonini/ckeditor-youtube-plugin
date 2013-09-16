@@ -190,7 +190,7 @@
 											id : 'chkPrivacy',
 											type : 'checkbox',
 											label : editor.lang.youtube.chkPrivacy,
-											'default' : editor.config.youtube_privacy != null ? editor.config.youtube_privacy : false,
+											'default' : editor.config.youtube_privacy != null ? editor.config.youtube_privacy : false
 										},
 										{
 											id : 'txtStartAt',
