@@ -40,7 +40,7 @@
 									type : 'textarea',
 									label : editor.lang.youtube.txtEmbed,
 									autofocus : 'autofocus',
-									onChange : function ( api )
+									onKeyUp : function ( api )
 									{
 										if ( this.getValue().length > 0 )
 										{
@@ -81,7 +81,7 @@
 											id : 'txtUrl',
 											type : 'text',
 											label : editor.lang.youtube.txtUrl,
-											onChange : function ( api )
+											onKeyUp : function ( api )
 											{
 												if ( this.getValue().length > 0 )
 												{
