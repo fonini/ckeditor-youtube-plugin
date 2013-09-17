@@ -7,7 +7,7 @@
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
 	{
-		lang: [ 'en', 'pt', 'ja', 'hu', 'it', 'fr', 'tr', 'ru' ],
+		lang: [ 'en', 'pt', 'ja', 'hu', 'it', 'fr', 'tr', 'ru', 'de' ],
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
@@ -190,7 +190,7 @@
 											id : 'chkPrivacy',
 											type : 'checkbox',
 											label : editor.lang.youtube.chkPrivacy,
-											'default' : editor.config.youtube_privacy != null ? editor.config.youtube_privacy : false,
+											'default' : editor.config.youtube_privacy != null ? editor.config.youtube_privacy : false
 										},
 										{
 											id : 'txtStartAt',
