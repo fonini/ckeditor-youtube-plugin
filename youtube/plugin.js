@@ -7,7 +7,7 @@
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
 	{
-		lang: [ 'en', 'pt', 'ja', 'hu', 'it', 'fr', 'tr', 'ru', 'de', 'ar' ],
+		lang: [ 'en', 'pt', 'ja', 'hu', 'it', 'fr', 'tr', 'ru', 'de', 'ar', 'nl' ],
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
@@ -193,6 +193,19 @@
 											'default' : editor.config.youtube_privacy != null ? editor.config.youtube_privacy : false
 										},
 										{
+											id : 'chkAutoplay',
+											type : 'checkbox',
+											'default' : editor.config.youtube_autoplay != null ? editor.config.youtube_autoplay : false,
+											label : editor.lang.youtube.chkAutoplay
+										}
+									]
+								},
+								{
+									type : 'hbox',
+									widths : [ '45%', '55%'],
+									children :
+									[
+										{
 											id : 'txtStartAt',
 											type : 'text',
 											label : editor.lang.youtube.txtStartAt,
@@ -209,6 +222,11 @@
 													}
 												}
 											}
+										},
+										{
+											id: 'empty',
+											type: 'html',
+											html: ''
 										}
 									]
 								}
@@ -241,6 +259,11 @@
 							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
 							{
 								params.push('rel=0');
+							}
+							
+							if ( this.getContentElement( 'youtubePlugin', 'chkAutoplay' ).getValue() === true )
+							{
+								params.push('autoplay=1');
 							}
 
 							startSecs = this.getValueOf( 'youtubePlugin', 'txtStartAt' );

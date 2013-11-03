@@ -9,6 +9,7 @@ CKEDITOR.plugins.setLang('youtube', 'hu', {
 	chkRelated : 'Ajánlott videók megjelenítése, amikor a videó befejeződik',
 	chkPrivacy : 'Fokozott adatvédelmi mód engedélyezése',
 	chkOlderCode : 'Régi beágyazott kód használata',
+	chkAutoplay : 'Autoplay',
 	noCode : 'A beágyazott kód, vagy az URL megadása kötelező',
 	invalidEmbed : 'A beágyazott kód érvénytelen',
 	invalidUrl : 'A megadott URL érvénytelen',

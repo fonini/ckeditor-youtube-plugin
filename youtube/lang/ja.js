@@ -9,6 +9,7 @@ CKEDITOR.plugins.setLang('youtube', 'ja', {
 	txtStartAt : 'Start at',
 	chkPrivacy : 'プライバシー強化モードを有効にする',
 	chkOlderCode : '以前の埋め込みコードを使用する',
+	chkAutoplay : '自動再生',
 	noCode : '埋め込みコードまたはURLを入力してください',
 	invalidEmbed : '不適切な埋め込みコードが入力されました',
 	invalidUrl : '不適切なURLが入力されました',

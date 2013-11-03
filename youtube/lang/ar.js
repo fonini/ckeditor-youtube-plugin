@@ -9,6 +9,7 @@ CKEDITOR.plugins.setLang('youtube', 'ar', {
 	txtStartAt : 'ابدأ عند (ss او mm:ss او hh:mm:ss)',
 	chkPrivacy : 'تفعيل وضع تحسين الخصوصية',
 	chkOlderCode : 'استخدم شيفرة التضمين القديمة',
+	chkAutoplay : 'Autoplay',
 	noCode : 'يجب عليك ادخال شيفرة التضمين او الرابط',
 	invalidEmbed : 'شيفرة التضمين التي قمت بإدخالها تبدو غير صحيحة',
 	invalidUrl : 'الرابط الذي قمت بإدخاله يبدو غير صحيح',

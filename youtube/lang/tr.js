@@ -9,6 +9,7 @@ CKEDITOR.plugins.setLang('youtube', 'tr', {
 	txtStartAt : 'Video başlangıç anı (ss ya da dd:ss ya da ss:dd:ss)',
 	chkPrivacy : 'Gizlilik modunu etkinleştir',
 	chkOlderCode : 'Eski gömülü kodu (embed) kullan',
+	chkAutoplay: 'Otomatik',
 	noCode : 'Gömülü kod (embed) veya url yapıştırmak zorundasınız',
 	invalidEmbed : 'Verdiğiniz gömülü kod (embed) ile video bulunamadı',
 	invalidUrl : 'Verdiğiniz linkte video bulunamadı',

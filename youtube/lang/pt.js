@@ -9,6 +9,7 @@ CKEDITOR.plugins.setLang('youtube', 'pt', {
 	txtStartAt : 'Iniciar em (ss ou mm:ss ou hh:mm:ss)',
 	chkPrivacy : 'Ativar o modo de privacidade aprimorada',
 	chkOlderCode : 'Usar código de incorporação antigo',
+	chkAutoplay : 'Reproduzir automaticamente',
 	noCode : 'Você precisa informar um código embed ou uma URL',
 	invalidEmbed : 'O código informado não parece ser válido',
 	invalidUrl : 'A URL informada não parece ser válida',

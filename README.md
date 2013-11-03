@@ -54,6 +54,11 @@ Enable privacy-enhanced mode:
 config.youtube_privacy = false;
 ```
 
+Start video automatically:
+
+```
+config.youtube_autoplay = false;
+```
 
 ## How to use
 If everything is ok, a Youtube icon should appear on the CKEditor toolbar. Click it,
@@ -68,6 +73,7 @@ Thanks to those who helped translate the plugin
  * Karmacsi Gábor (hu)
  * Francesco Zanoni (it)
  * Yayoshi Nobuhide (ja)
+ * Patrick van Lier (nl)
  * Alexander Ustimenko (ru)
  * Çağdaş Yiğit (tr)
 
