@@ -42,13 +42,11 @@
 									autofocus : 'autofocus',
 									onChange : function ( api )
 									{
-										if ( this.getValue().length > 0 )
-										{
-											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).disable();
-										}
-										else {
-											this.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).enable();
-										}
+										handleEmbedChange( this, api );
+									},
+									onKeyUp : function ( api )
+									{
+										handleEmbedChange( this, api );
 									},
 									validate : function ()
 									{
@@ -83,13 +81,11 @@
 											label : editor.lang.youtube.txtUrl,
 											onChange : function ( api )
 											{
-												if ( this.getValue().length > 0 )
-												{
-													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
-												}
-												else {
-													this.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
-												}
+												handleLinkChange( this, api );
+											},
+											onKeyUp : function ( api )
+											{
+												handleLinkChange( this, api );
 											},
 											validate : function ()
 											{
@@ -313,6 +309,28 @@
 		}
 	});
 })();
+
+function handleLinkChange( el, api )
+{
+	if ( el.getValue().length > 0 )
+	{
+		el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
+	}
+	else {
+		el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
+	}
+}
+
+function handleEmbedChange( el, api )
+{
+	if ( el.getValue().length > 0 )
+	{
+		el.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).disable();
+	}
+	else {
+		el.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).enable();
+	}
+}
 
 
 /**
