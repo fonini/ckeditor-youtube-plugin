@@ -7,7 +7,7 @@
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
 	{
-		lang: [ 'en', 'pt', 'ja', 'hu', 'it', 'fr', 'tr', 'ru', 'de', 'ar', 'nl', 'pl' ],
+		lang: [ 'en', 'pt', 'ja', 'hu', 'it', 'fr', 'tr', 'ru', 'de', 'ar', 'nl', 'pl', 'vi'],
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
@@ -123,7 +123,7 @@
 													if ( width === 0 )
 													{
 														alert( editor.lang.youtube.invalidWidth );
-														return false;	
+														return false;
 													}
 												}
 												else {
@@ -147,7 +147,7 @@
 													if ( height === 0 )
 													{
 														alert( editor.lang.youtube.invalidHeight );
-														return false;	
+														return false;
 													}
 												}
 												else {
@@ -210,7 +210,7 @@
 												if ( this.getValue() )
 												{
 													var str = this.getValue();
-													
+
 													if ( !/^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/i.test( str ) )
 													{
 														alert( editor.lang.youtube.invalidTime );
@@ -256,7 +256,7 @@
 							{
 								params.push('rel=0');
 							}
-							
+
 							if ( this.getContentElement( 'youtubePlugin', 'chkAutoplay' ).getValue() === true )
 							{
 								params.push('autoplay=1');
@@ -269,16 +269,20 @@
 								params.push('start=' + seconds);
 							}
 
+							if ( params.length > 0 )
+							{
+								url = url + '?' + params.join( '&' );
+							}
+
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
 							{
 								url = url.replace('embed/', 'v/');
 								url = url.replace(/&/g, '&amp;');
 
-								if ( params.length == 0 )
+								if ( url.indexOf('?')== -1 )
 								{
 									url += '?';
 								}
-
 								url += 'hl=pt_BR&amp;version=3';
 
 								content = '<object width="' + width + '" height="' + height + '">';
@@ -291,13 +295,8 @@
 								content += '</object>';
 							}
 							else {
-								if ( params.length > 0 )
-								{
-									url = url + '?' + params.join( '&' );
-								}
-
 								content = '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ';
-								content += 'frameborder="0" allowfullscreen></iframe>';	
+								content += 'frameborder="0" allowfullscreen></iframe>';
 							}
 						}
 
@@ -334,7 +333,7 @@ function handleEmbedChange( el, api )
 
 
 /**
- * JavaScript function to match (and return) the video Id 
+ * JavaScript function to match (and return) the video Id
  * of any valid Youtube Url, given as input string.
  * @author: Stephan Schmitz <eyecatchup@gmail.com>
  * @url: http://stackoverflow.com/a/10315969/624466
@@ -345,7 +344,7 @@ function ytVidId( url )
 	return ( url.match( p ) ) ? RegExp.$1 : false;
 }
 
-/** 
+/**
  * Converts time in hms format to seconds only
  */
 function hmsToSeconds( time )
