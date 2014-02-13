@@ -283,6 +283,9 @@
 								{
 									url += '?';
 								}
+								else {
+									url += '&amp;';
+								}
 								url += 'hl=pt_BR&amp;version=3';
 
 								content = '<object width="' + width + '" height="' + height + '">';
