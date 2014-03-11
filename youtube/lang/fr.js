@@ -1,13 +1,13 @@
 CKEDITOR.plugins.setLang('youtube', 'fr', {
-	button : 'Insérer une vidéo Youtube',
-	title : 'Insérer une vidéo youtube',
+	button : 'InsÃ©rer une vidÃ©o Youtube',
+	title : 'InsÃ©rer une vidÃ©o youtube',
 	txtEmbed : 'Coller le code embed ici',
-	txtUrl : 'Coller l\'url de la vidéo ici',
+	txtUrl : 'Coller l\'url de la vidÃ©o ici',
 	txtWidth : 'Largeur',
 	txtHeight : 'Hauteur',
-	chkRelated : 'Montrer les suggestions de vidéo à la fin',
-	txtStartAt : 'Commencer à (ss ou mm:ss ou hh:mm:ss)',
-	chkPrivacy : 'Activer la protection de la vie privée',
+	chkRelated : 'Montrer les suggestions de vidÃ©o Ã  la fin',
+	txtStartAt : 'Commencer Ã  (ss ou mm:ss ou hh:mm:ss)',
+	chkPrivacy : 'Activer la protection de la vie privÃ©e',
 	chkOlderCode : 'Utiliser l\'ancien code embed',
 	chkAutoplay : 'Autoplay',
 	noCode : 'Vous devez entrer un code embed ou une url',
@@ -18,5 +18,5 @@ CKEDITOR.plugins.setLang('youtube', 'fr', {
 	invalidWidth : 'La largeur saisie est invalide',
 	noHeight : 'Vous devez saisir une hauteur',
 	invalidHeight : 'La hauteur saisie est invalide',
-	invalidTime : 'Le temps de départ de la vidéo est invalide'
+	invalidTime : 'Le temps de dÃ©part de la vidÃ©o est invalide'
 });
