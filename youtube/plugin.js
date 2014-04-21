@@ -198,7 +198,7 @@
 								},
 								{
 									type : 'hbox',
-									widths : [ '45%', '55%'],
+									widths : [ '55%', '45%'],
 									children :
 									[
 										{
@@ -225,6 +225,16 @@
 											html: ''
 										}
 									]
+								},
+								{
+								    type : 'html',
+									html : '<hr>'
+								},
+								{
+									id : 'chkSourceLink',
+									type : 'checkbox',
+									'default' : editor.config.youtube_link != null ? editor.config.youtube_link : false,
+									label : editor.lang.youtube.chkSourceLink
 								}
 							]
 						}
@@ -236,6 +246,8 @@
 						if ( this.getContentElement( 'youtubePlugin', 'txtEmbed' ).isEnabled() )
 						{
 							content = this.getValueOf( 'youtubePlugin', 'txtEmbed' );
+							link = $(content).attr('src');
+							link = link.replace('embed/', 'watch?v=')
 						}
 						else {
 							var url = '//', params = [], startSecs;
@@ -301,10 +313,19 @@
 								content = '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ';
 								content += 'frameborder="0" allowfullscreen></iframe>';
 							}
-						}
 
+							link = '//youtube.com/watch?v=' + video;
+						}
+						
 						var instance = this.getParentEditor();
-						instance.insertHtml( content );
+
+						if ( this.getContentElement( 'youtubePlugin', 'chkSourceLink' ).getValue() === true )
+						{
+							instance.insertHtml( content + '<a class="hidden" href="' + link + '">Watch On Youtube</a>' );
+						}
+						else {
+							instance.insertHtml( content );
+						}
 					}
 				};
 			});
