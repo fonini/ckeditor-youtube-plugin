@@ -160,6 +160,19 @@
 								},
 								{
 									type : 'hbox',
+									widths : [ '100%' ],
+									children :
+										[
+											{
+												id : 'chkResponsive',
+												type : 'checkbox',
+												label : editor.lang.youtube.txtResponsive,
+												'default' : editor.config.youtube_responsive != null ? editor.config.youtube_responsive : false
+											}
+										]
+								},
+								{
+									type : 'hbox',
 									widths : [ '55%', '45%' ],
 									children :
 									[
@@ -227,7 +240,7 @@
 									]
 								},
 								{
-								    type : 'html',
+									type : 'html',
 									html : '<hr>'
 								},
 								{
@@ -242,6 +255,7 @@
 					onOk: function()
 					{
 						var content = '';
+						var responsiveStyle='';
 
 						if ( this.getContentElement( 'youtubePlugin', 'txtEmbed' ).isEnabled() )
 						{
@@ -286,6 +300,11 @@
 								url = url + '?' + params.join( '&' );
 							}
 
+							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
+								content += '<div style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;">';
+								responsiveStyle = 'style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"';
+							}
+
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
 							{
 								url = url.replace('embed/', 'v/');
@@ -300,18 +319,22 @@
 								}
 								url += 'hl=pt_BR&amp;version=3';
 
-								content = '<object width="' + width + '" height="' + height + '">';
+								content += '<object width="' + width + '" height="' + height + '" ' + responsiveStyle + '>';
 								content += '<param name="movie" value="' + url + '"></param>';
 								content += '<param name="allowFullScreen" value="true"></param>';
 								content += '<param name="allowscriptaccess" value="always"></param>';
 								content += '<embed src="' + url + '" type="application/x-shockwave-flash" ';
-								content += 'width="' + width + '" height="' + height + '" allowscriptaccess="always" ';
+								content += 'width="' + width + '" height="' + height + '" '+ responsiveStyle + ' allowscriptaccess="always" ';
 								content += 'allowfullscreen="true"></embed>';
 								content += '</object>';
 							}
 							else {
-								content = '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ';
+								content += '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
 								content += 'frameborder="0" allowfullscreen></iframe>';
+							}
+
+							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
+								content += '</div>';
 							}
 
 							link = '//youtube.com/watch?v=' + video;
