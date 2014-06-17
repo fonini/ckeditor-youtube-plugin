@@ -18,5 +18,7 @@ CKEDITOR.plugins.setLang('youtube', 'tr', {
 	invalidWidth : 'Bir genişlik belirtin',
 	noHeight : 'Yükseliği belirtmek zorundasınız',
 	invalidHeight : 'Yükseklik belirtin',
-	invalidTime : 'Başlangıç anını doğru girin, örneğin: 13 (13. saniye) ya da 12:25 (12. dakika 25. saniye) ya da 01.25.33 (1 saat 25 dakika 33 saniye)'
+	invalidTime : 'Başlangıç anını doğru girin, örneğin: 13 (13. saniye) ya da 12:25 (12. dakika 25. saniye) ya da 01.25.33 (1 saat 25 dakika 33 saniye)',
+	chkSourceLink : 'Include link to YouTube',
+	txtResponsive : 'Responsive video'
 });

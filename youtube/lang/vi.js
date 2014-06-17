@@ -18,5 +18,7 @@ CKEDITOR.plugins.setLang('youtube', 'vi', {
 	invalidWidth : 'Chiều rộng hợp lệ',
 	noHeight : 'Bạn phải chiều cao',
 	invalidHeight : 'Chiều cao hợp lệ',
-	invalidTime : 'Thời gian bắt đầu không đúng'
+	invalidTime : 'Thời gian bắt đầu không đúng',
+	chkSourceLink : 'Include link to YouTube',
+	txtResponsive : 'Responsive video'
 });

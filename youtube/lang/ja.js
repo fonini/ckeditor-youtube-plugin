@@ -18,5 +18,7 @@ CKEDITOR.plugins.setLang('youtube', 'ja', {
 	invalidWidth : '幅指定に誤りがあります',
 	noHeight : '高さを指定してください',
 	invalidHeight : '高さ指定に誤りがあります',
-	invalidTime : 'Inform a valid start time'
+	invalidTime : 'Inform a valid start time',
+	chkSourceLink : 'Include link to YouTube',
+	txtResponsive : 'Responsive video'
 });
