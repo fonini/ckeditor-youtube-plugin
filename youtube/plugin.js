@@ -158,19 +158,19 @@
 										}
 									]
 								},
-                                {
-                                    type : 'hbox',
-                                    widths : [ '100%' ],
-                                    children :
-                                        [
-                                            {
-                                                id : 'chkResponsive',
-                                                type : 'checkbox',
-                                                label : editor.lang.youtube.txtResponsive,
-                                                'default' : editor.config.youtube_responsive != null ? editor.config.youtube_responsive : false
-                                            }
-                                        ]
-                                },
+								{
+									type : 'hbox',
+									widths : [ '100%' ],
+									children :
+										[
+											{
+												id : 'chkResponsive',
+												type : 'checkbox',
+												label : editor.lang.youtube.txtResponsive,
+												'default' : editor.config.youtube_responsive != null ? editor.config.youtube_responsive : false
+											}
+										]
+								},
 								{
 									type : 'hbox',
 									widths : [ '55%', '45%' ],
@@ -240,7 +240,7 @@
 									]
 								},
 								{
-								    type : 'html',
+									type : 'html',
 									html : '<hr>'
 								},
 								{
@@ -255,7 +255,7 @@
 					onOk: function()
 					{
 						var content = '';
-                        var responsiveStyle='';
+						var responsiveStyle='';
 
 						if ( this.getContentElement( 'youtubePlugin', 'txtEmbed' ).isEnabled() )
 						{
@@ -300,10 +300,10 @@
 								url = url + '?' + params.join( '&' );
 							}
 
-                            if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
-                                content += '<div style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;">';
-                                responsiveStyle = 'style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"';
-                            }
+							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
+								content += '<div style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;">';
+								responsiveStyle = 'style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"';
+							}
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
 							{
@@ -333,9 +333,9 @@
 								content += 'frameborder="0" allowfullscreen></iframe>';
 							}
 
-                            if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
-                                content += '</div>';
-                            }
+							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
+								content += '</div>';
+							}
 
 							link = '//youtube.com/watch?v=' + video;
 						}
