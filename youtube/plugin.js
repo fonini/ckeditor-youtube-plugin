@@ -343,9 +343,9 @@
 						if ( this.getContentElement( 'youtubePlugin', 'chkSourceLink' ).getValue() === true ) {
 							content+= '<a class="hidden" href="' + link + '">Watch On Youtube</a>';
 						}
-                        var element = CKEDITOR.dom.element.createFromHtml( content );
-                        var instance = this.getParentEditor();
-                        instance.insertElement(element);
+						var element = CKEDITOR.dom.element.createFromHtml( content );
+						var instance = this.getParentEditor();
+						instance.insertElement(element);
 					}
 				};
 			});
