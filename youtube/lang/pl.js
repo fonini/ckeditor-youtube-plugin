@@ -19,6 +19,5 @@ CKEDITOR.plugins.setLang('youtube', 'pl', {
 	noHeight : 'Musisz wprowadzić wysokość',
 	invalidHeight : 'Wprowadzona wysokość nie jest poprawna',
 	invalidTime : 'Musisz wprowadzić poprawny czas rozpoczęcia',
-	chkSourceLink : 'Include link to YouTube',
 	txtResponsive : 'Responsive video'
 });

@@ -19,6 +19,5 @@ CKEDITOR.plugins.setLang('youtube', 'ru', {
 	noHeight : 'Вы должны указать высоту',
 	invalidHeight : 'Укажите правильную высоту',
 	invalidTime : 'Укажите правильное время начала',
-	chkSourceLink : 'Include link to YouTube',
 	txtResponsive : 'Responsive video'
 });

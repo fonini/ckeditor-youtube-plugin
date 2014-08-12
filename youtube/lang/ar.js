@@ -19,6 +19,5 @@ CKEDITOR.plugins.setLang('youtube', 'ar', {
 	noHeight : 'يجب عليك ادخال الطول',
 	invalidHeight : 'يجب عليك ادخال طول صحيح',
 	invalidTime : 'يجب عليك ادخال وقت بداية صحيح',
-	chkSourceLink : 'Include link to YouTube',
 	txtResponsive : 'Responsive video'
 });

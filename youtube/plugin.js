@@ -238,16 +238,6 @@
 											html: ''
 										}
 									]
-								},
-								{
-									type : 'html',
-									html : '<hr>'
-								},
-								{
-									id : 'chkSourceLink',
-									type : 'checkbox',
-									'default' : editor.config.youtube_link != null ? editor.config.youtube_link : false,
-									label : editor.lang.youtube.chkSourceLink
 								}
 							]
 						}
@@ -260,8 +250,6 @@
 						if ( this.getContentElement( 'youtubePlugin', 'txtEmbed' ).isEnabled() )
 						{
 							content = this.getValueOf( 'youtubePlugin', 'txtEmbed' );
-							link = $(content).attr('src');
-							link = link.replace('embed/', 'watch?v=')
 						}
 						else {
 							var url = '//', params = [], startSecs;
@@ -310,7 +298,7 @@
 								url = url.replace('embed/', 'v/');
 								url = url.replace(/&/g, '&amp;');
 
-								if ( url.indexOf('?')== -1 )
+								if ( url.indexOf('?') === -1 )
 								{
 									url += '?';
 								}
@@ -336,13 +324,8 @@
 							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
 								content += '</div>';
 							}
-
-							link = '//youtube.com/watch?v=' + video;
 						}
 						
-						if ( this.getContentElement( 'youtubePlugin', 'chkSourceLink' ).getValue() === true ) {
-							content+= '<a class="hidden" href="' + link + '">Watch On Youtube</a>';
-						}
 						var element = CKEDITOR.dom.element.createFromHtml( content );
 						var instance = this.getParentEditor();
 						instance.insertElement(element);

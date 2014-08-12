@@ -19,6 +19,5 @@ CKEDITOR.plugins.setLang('youtube', 'zh', {
     invalidWidth: '寬設定錯誤',
     noHeight: '必須設定高',
     invalidHeight: '高設定錯誤',
-    invalidTime: '開始時間設定錯誤',
-    chkSourceLink: '包含 YouTube 鏈結'
+    invalidTime: '開始時間設定錯誤'
 });
