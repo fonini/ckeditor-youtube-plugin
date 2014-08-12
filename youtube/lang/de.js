@@ -5,7 +5,6 @@ CKEDITOR.plugins.setLang('youtube', 'de', {
 	txtUrl : 'YouTube Video URL hier einfügen',
 	txtWidth : 'Breite',
 	txtHeight : 'Höhe',
-	txtResponsive : 'Automatische Größe (ignoriert Breite und Höhe)',
 	chkRelated : 'Vorschläge am Ende des Videos einblenden',
 	txtStartAt : 'Start bei Position (ss oder mm:ss oder hh:mm:ss)',
 	chkPrivacy : 'Erweiterten Datenschutzmodus aktivieren',
@@ -20,5 +19,5 @@ CKEDITOR.plugins.setLang('youtube', 'de', {
 	noHeight : 'Geben Sie eine Höhe an',
 	invalidHeight : 'Geben Sie eine gültige Höhe an',
 	invalidTime : 'Geben Sie eine gültige Startzeit an',
-	chkSourceLink : 'Link zu YouTube anzeigen'
+	txtResponsive : 'Automatische Größe (ignoriert Breite und Höhe)'
 });

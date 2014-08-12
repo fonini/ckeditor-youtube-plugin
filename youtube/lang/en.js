@@ -5,7 +5,6 @@ CKEDITOR.plugins.setLang('youtube', 'en', {
 	txtUrl : 'Paste YouTube Video URL',
 	txtWidth : 'Width',
 	txtHeight : 'Height',
-	txtResponsive : 'Make Responsive (ignore width and height, fit to width)',
 	chkRelated : 'Show suggested videos at the video\'s end',
 	txtStartAt : 'Start at (ss or mm:ss or hh:mm:ss)',
 	chkPrivacy : 'Enable privacy-enhanced mode',
@@ -20,5 +19,5 @@ CKEDITOR.plugins.setLang('youtube', 'en', {
 	noHeight : 'You must inform the height',
 	invalidHeight : 'Inform a valid height',
 	invalidTime : 'Inform a valid start time',
-    chkSourceLink : 'Include a link to YouTube'
+	txtResponsive : 'Make Responsive (ignore width and height, fit to width)'
 });
