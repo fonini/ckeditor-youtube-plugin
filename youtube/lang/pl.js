@@ -1,6 +1,6 @@
 CKEDITOR.plugins.setLang('youtube', 'pl', {
-	button : 'Załacznik wideo z Youtube',
-	title : 'Załacznik wideo z Youtube',
+	button : 'Załącznik wideo z Youtube',
+	title : 'Załącznik wideo z Youtube',
 	txtEmbed : 'Wklej kod do umieszczenia',
 	txtUrl : 'Wklej link URL do wideo',
 	txtWidth : 'Szerokość',

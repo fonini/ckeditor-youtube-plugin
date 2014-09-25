@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <contato@fonini.net>
-* @version 1.0.10
+* @version 2.0.0
 */
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
@@ -305,7 +305,7 @@
 								else {
 									url += '&amp;';
 								}
-								url += 'hl=pt_BR&amp;version=3';
+								url += 'hl=' + (this.getParentEditor().config.language ? this.getParentEditor().config.language : 'en') + '&amp;version=3';
 
 								content += '<object width="' + width + '" height="' + height + '" ' + responsiveStyle + '>';
 								content += '<param name="movie" value="' + url + '"></param>';
