@@ -71,6 +71,7 @@ Thanks to those who helped translate the plugin
  * Sven Jansen (de)
  * Dimitris Kotsakis (el)
  * BiomanRouge (fr)
+ * Moshe Simantov (he)
  * Karmacsi Gábor (hu)
  * Francesco Zanoni (it)
  * Yayoshi Nobuhide (ja)
