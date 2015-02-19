@@ -70,6 +70,7 @@ Thanks to those who helped translate the plugin
  * Eyed Farra (ar)
  * Sven Jansen (de)
  * Dimitris Kotsakis (el)
+ * Victor (pollin14) (es)
  * BiomanRouge (fr)
  * Moshe Simantov (he)
  * Karmacsi Gábor (hu)
