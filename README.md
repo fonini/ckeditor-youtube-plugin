@@ -76,6 +76,7 @@ Thanks to those who helped translate the plugin
  * Karmacsi Gábor (hu)
  * Francesco Zanoni (it)
  * Yayoshi Nobuhide (ja)
+ * Holger Lockertsen (nb, nn)
  * Patrick van Lier (nl)
  * Michał Zalewski (pl)
  * Alexander Ustimenko (ru)
