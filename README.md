@@ -80,6 +80,7 @@ Thanks to those who helped translate the plugin
  * Sven Jansen (de)
  * Dimitris Kotsakis (el)
  * Victor (pollin14) (es)
+ * Jami Pietilä (fi)
  * BiomanRouge (fr)
  * Moshe Simantov (he)
  * Karmacsi Gábor (hu)
