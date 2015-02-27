@@ -88,7 +88,7 @@ Thanks to those who helped translate the plugin
  * Yayoshi Nobuhide (ja)
  * Holger Lockertsen (nb, nn)
  * Patrick van Lier (nl)
- * Michał Zalewski (pl)
+ * Michał Zalewski, Wirek (pl)
  * Alexander Ustimenko (ru)
  * Çağdaş Yiğit (tr)
  * Vu Thao (vi)
