@@ -91,6 +91,7 @@ Thanks to those who helped translate the plugin
  * Patrick van Lier (nl)
  * Michał Zalewski, Wirek (pl)
  * Alexander Ustimenko (ru)
+ * ivanbarlog (sk)
  * Çağdaş Yiğit (tr)
  * Vu Thao (vi)
  * trowa (zh)
