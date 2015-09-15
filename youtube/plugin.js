@@ -11,7 +11,7 @@
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
-				allowedContent: 'div[*]; iframe[!width,!height,!src,!frameborder,!allowfullscreen]; object param[*]'
+				allowedContent: 'div{*}; iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]; object param[*]'
 			}));
 
 			editor.ui.addButton( 'Youtube',
