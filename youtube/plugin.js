@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <contato@fonini.net>
-* @version 2.0.9
+* @version 2.1.0
 */
 ( function() {
 	CKEDITOR.plugins.add( 'youtube',
@@ -11,7 +11,7 @@
 		init: function( editor )
 		{
 			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
-				allowedContent: 'div{*}; iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]; object param[*]'
+				allowedContent: 'div{*}(*); iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]; object param[*]; a[*]; img[*]'
 			}));
 
 			editor.ui.addButton( 'Youtube',
@@ -160,7 +160,7 @@
 								},
 								{
 									type : 'hbox',
-									widths : [ '100%' ],
+									widths : [ '55%', '45%' ],
 									children :
 										[
 											{
@@ -168,6 +168,12 @@
 												type : 'checkbox',
 												label : editor.lang.youtube.txtResponsive,
 												'default' : editor.config.youtube_responsive != null ? editor.config.youtube_responsive : false
+											},
+											{
+												id : 'chkNoEmbed',
+												type : 'checkbox',
+												label : editor.lang.youtube.txtNoEmbed,
+												'default' : editor.config.youtube_noembed != null ? editor.config.youtube_noembed : false
 											}
 										]
 								},
@@ -289,8 +295,8 @@
 							}
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
-								content += '<div class="youtube-embed-wrapper" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden;">';
-								responsiveStyle = 'style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"';
+								content += '<div class="youtube-embed-wrapper" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden">';
+								responsiveStyle = 'style="position:absolute;top:0;left:0;width:100%;height:100%"';
 							}
 
 							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
@@ -315,6 +321,12 @@
 								content += 'width="' + width + '" height="' + height + '" '+ responsiveStyle + ' allowscriptaccess="always" ';
 								content += 'allowfullscreen="true"></embed>';
 								content += '</object>';
+							}
+							else 
+							if (this.getContentElement( 'youtubePlugin', 'chkNoEmbed' ).getValue() === true)
+							{
+								var imgSrc = '//img.youtube.com/vi/' + video + '/sddefault.jpg';
+								content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
 							}
 							else {
 								content += '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
