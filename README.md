@@ -88,6 +88,7 @@ Thanks to those who helped translate the plugin
  * Karmacsi Gábor (hu)
  * Francesco Zanoni (it)
  * Yayoshi Nobuhide (ja)
+ * MinSoo Kim (ko)
  * Holger Lockertsen (nb, nn)
  * Patrick van Lier (nl)
  * Michał Zalewski, Wirek (pl)
