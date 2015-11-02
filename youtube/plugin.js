@@ -258,7 +258,7 @@
 							content = this.getValueOf( 'youtubePlugin', 'txtEmbed' );
 						}
 						else {
-							var url = '//', params = [], startSecs;
+							var url = 'https://', params = [], startSecs;
 							var width = this.getValueOf( 'youtubePlugin', 'txtWidth' );
 							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
 
