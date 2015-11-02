@@ -322,7 +322,7 @@
 								content += 'allowfullscreen="true"></embed>';
 								content += '</object>';
 							}
-							else 
+							else
 							if (this.getContentElement( 'youtubePlugin', 'chkNoEmbed' ).getValue() === true)
 							{
 								var imgSrc = '//img.youtube.com/vi/' + video + '/sddefault.jpg';
@@ -337,7 +337,7 @@
 								content += '</div>';
 							}
 						}
-						
+
 						var element = CKEDITOR.dom.element.createFromHtml( content );
 						var instance = this.getParentEditor();
 						instance.insertElement(element);
@@ -350,13 +350,22 @@
 
 function handleLinkChange( el, api )
 {
-	if ( el.getValue().length > 0 )
-	{
-		el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
-	}
-	else {
-		el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
-	}
+    var video = ytVidId(el.getValue());
+    var time = ytVidTime(el.getValue());
+
+    if ( el.getValue().length > 0 )
+    {
+        el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
+    }
+    else {
+        el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
+    }
+
+    if ( video && time ) {
+        var seconds = timeParamToSeconds( time );
+        var hms = secondsToHms( seconds );
+        el.getDialog().getContentElement('youtubePlugin', 'txtStartAt').setValue( hms );
+    }
 }
 
 function handleEmbedChange( el, api )
@@ -384,6 +393,15 @@ function ytVidId( url )
 }
 
 /**
+ * Matches and returns time param in YouTube Urls.
+ */
+function ytVidTime( url )
+{
+    var p = /t=([0-9hms]+)/;
+    return ( url.match( p ) ) ? RegExp.$1 : false;
+}
+
+/**
  * Converts time in hms format to seconds only
  */
 function hmsToSeconds( time )
@@ -397,4 +415,65 @@ function hmsToSeconds( time )
 	}
 
 	return s;
+}
+
+/**
+ * Converts seconds to hms format
+ */
+function secondsToHms( seconds )
+{
+    var h = Math.floor(seconds / 3600);
+    var m = Math.floor((seconds / 60) % 60);
+    var s = seconds % 60;
+
+    var pad = function (n) {
+        n = String(n);
+        return n.length >= 2 ? n : "0" + n;
+    };
+
+    if (h > 0) {
+        return pad(h) + ':' + pad(m) + ':' + pad(s);
+    } else {
+        return pad(m) + ':' + pad(s);
+    }
+}
+
+/**
+ * Converts time in youtube t-param format to seconds
+ */
+function timeParamToSeconds( param )
+{
+    var componentValue = function (si) {
+        var regex = new RegExp('(\\d+)' + si);
+        return param.match(regex) ? parseInt(RegExp.$1, 10) : 0;
+    };
+
+    return componentValue('h') * 3600
+        + componentValue('m') * 60
+        + componentValue('s');
+}
+
+/**
+ * Converts seconds into youtube t-param value, e.g. 1h4m30s
+ */
+function secondsToTimeParam( seconds )
+{
+    var h = Math.floor(seconds / 3600);
+    var m = Math.floor((seconds / 60) % 60);
+    var s = seconds % 60;
+    var param = '';
+
+    if (h > 0) {
+        param += h + 'h';
+    }
+
+    if (m > 0) {
+        param += m + 'm';
+    }
+
+    if (s > 0) {
+        param += s + 's';
+    }
+
+    return param;
 }
