@@ -13,7 +13,7 @@ This plugin allow you to insert Youtube videos using embed code or just the vide
 
 ### With NPM
 
- 1. npm install with repository URL
+ 1. npm install ckeditor-youtube-plugin
 
  2. Add the plugin to CKEditor:
 
