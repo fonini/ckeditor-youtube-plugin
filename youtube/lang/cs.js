@@ -19,5 +19,6 @@
 	noHeight : 'Musíte zadat výšku',
 	invalidHeight : 'Zadejte platnou výšku',
 	invalidTime : 'Zadejte platný počáteční čas',
-	txtResponsive : 'Responzivní design (ignorovat výšku a šířku, uzpůsobit šířce)'
+	txtResponsive : 'Responzivní design (ignorovat výšku a šířku, uzpůsobit šířce)',
+	txtNoEmbed : 'Pouze obrázek videa s odkazem'
 });
