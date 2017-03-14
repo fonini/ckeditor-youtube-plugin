@@ -1,7 +1,7 @@
 Youtube Plugin for CKEditor 4
 =============================
 
-Copyright © 2013 Jonnas Fonini <contato@fonini.net>.
+Copyright © 2017 Jonnas Fonini <jonnasfonini@gmail.com>.
 
 This work is free. You can redistribute it and/or modify it under the
 terms of the Do What The Fuck You Want To Public License, Version 2,
@@ -15,11 +15,23 @@ This plugin allow you to insert Youtube videos using embed code or just the vide
 
  1. npm install ckeditor-youtube-plugin
 
- 2. Add the plugin to CKEditor:
+ 2. Add the plugin to CKEditor (config.js):
 
     ````
-    CKEDITOR.plugins.addExternal('youtube', '/.../ckeditor-youtube-plugin/youtube/');
+    CKEDITOR.plugins.addExternal('youtube', '../node_modules/ckeditor-youtube-plugin/youtube/');
+
+    config.extraPlugins = 'youtube';
     ````
+
+    You may need to adjust the plugin path. The example is assuming that you have the following directory structure:
+
+    ```
+    project
+    └───ckeditor
+    │   └───config.js
+    └───node_modules
+        └───ckeditor-youtube-plugin
+    ```
 
 ### Manual
 
