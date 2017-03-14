@@ -17,7 +17,7 @@ This plugin allow you to insert Youtube videos using embed code or just the vide
 
  2. Add the plugin to CKEditor (config.js):
 
-    ````
+    ````js
     CKEDITOR.plugins.addExternal('youtube', '../node_modules/ckeditor-youtube-plugin/youtube/');
 
     config.extraPlugins = 'youtube';
@@ -41,13 +41,13 @@ Follow these steps:
  2. Extract the downloaded file into the CKEditor's **plugins** folder.
  3. Enable the plugin by changing or adding the extraPlugins line in your configuration (config.js):
 
-    ````
+    ````js
     config.extraPlugins = 'youtube';
     ````
 
  4. Add the icon to the toolbar. The below code is just an example.
 
-    ````
+    ````js
     config.toolbar = [      
         ...
         { name: 'others', items: [ 'Youtube' ] },       
@@ -59,37 +59,37 @@ The default options can be overriden on config.js.
 
 Video width:
 
-```
+```js
 config.youtube_width = '640';
 ```
 
 Video height:
 
-```
+```js
 config.youtube_height = '480';
 ```
 
 Show related videos:
 
-```
+```js
 config.youtube_related = true;
 ```
 
 Use old embed code:
 
-```
+```js
 config.youtube_older = false;
 ```
 
 Enable privacy-enhanced mode:
 
-```
+```js
 config.youtube_privacy = false;
 ```
 
 Start video automatically:
 
-```
+```js
 config.youtube_autoplay = false;
 ```
 
