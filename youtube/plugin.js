@@ -2,28 +2,24 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <jonnasfonini@gmail.com>
-* @version 2.1.2
+* @version 2.1.3
 */
-( function() {
-	CKEDITOR.plugins.add( 'youtube',
-	{
+(function () {
+	CKEDITOR.plugins.add('youtube', {
 		lang: [ 'en', 'pt', 'pt-br', 'ja', 'hu', 'it', 'fr', 'tr', 'ru', 'de', 'ar', 'nl', 'pl', 'vi', 'zh', 'el', 'he', 'es', 'nb', 'nn', 'fi', 'et', 'sk', 'cs', 'ko'],
-		init: function( editor )
-		{
-			editor.addCommand( 'youtube', new CKEDITOR.dialogCommand( 'youtube', {
+		init: function (editor) {
+			editor.addCommand('youtube', new CKEDITOR.dialogCommand('youtube', {
 				allowedContent: 'div{*}(*); iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]; object param[*]; a[*]; img[*]'
 			}));
 
-			editor.ui.addButton( 'Youtube',
-			{
+			editor.ui.addButton('Youtube', {
 				label : editor.lang.youtube.button,
 				toolbar : 'insert',
 				command : 'youtube',
 				icon : this.path + 'images/icon.png'
 			});
 
-			CKEDITOR.dialog.add( 'youtube', function ( instance )
-			{
+			CKEDITOR.dialog.add('youtube', function (instance) {
 				var video;
 
 				return {
@@ -40,27 +36,21 @@
 									type : 'textarea',
 									label : editor.lang.youtube.txtEmbed,
 									autofocus : 'autofocus',
-									onChange : function ( api )
-									{
-										handleEmbedChange( this, api );
+									onChange : function (api) {
+										handleEmbedChange(this, api);
 									},
-									onKeyUp : function ( api )
-									{
-										handleEmbedChange( this, api );
+									onKeyUp : function (api) {
+										handleEmbedChange(this, api);
 									},
-									validate : function ()
-									{
-										if ( this.isEnabled() )
-										{
-											if ( !this.getValue() )
-											{
-												alert( editor.lang.youtube.noCode );
+									validate : function () {
+										if (this.isEnabled()) {
+											if (!this.getValue()) {
+												alert(editor.lang.youtube.noCode);
 												return false;
 											}
 											else
-											if ( this.getValue().length === 0 || this.getValue().indexOf( '//' ) === -1 )
-											{
-												alert( editor.lang.youtube.invalidEmbed );
+											if (this.getValue().length === 0 || this.getValue().indexOf('//') === -1) {
+												alert(editor.lang.youtube.invalidEmbed);
 												return false;
 											}
 										}
@@ -79,29 +69,24 @@
 											id : 'txtUrl',
 											type : 'text',
 											label : editor.lang.youtube.txtUrl,
-											onChange : function ( api )
-											{
-												handleLinkChange( this, api );
+											onChange : function (api) {
+												handleLinkChange(this, api);
 											},
-											onKeyUp : function ( api )
-											{
-												handleLinkChange( this, api );
+											onKeyUp : function (api) {
+												handleLinkChange(this, api);
 											},
-											validate : function ()
-											{
-												if ( this.isEnabled() )
-												{
-													if ( !this.getValue() )
-													{
-														alert( editor.lang.youtube.noCode );
+											validate : function () {
+												if (this.isEnabled()) {
+													if (!this.getValue()) {
+														alert(editor.lang.youtube.noCode);
 														return false;
 													}
 													else{
 														video = ytVidId(this.getValue());
 
-														if ( this.getValue().length === 0 ||  video === false)
+														if (this.getValue().length === 0 ||  video === false)
 														{
-															alert( editor.lang.youtube.invalidUrl );
+															alert(editor.lang.youtube.invalidUrl);
 															return false;
 														}
 													}
@@ -114,20 +99,17 @@
 											width : '60px',
 											label : editor.lang.youtube.txtWidth,
 											'default' : editor.config.youtube_width != null ? editor.config.youtube_width : '640',
-											validate : function ()
-											{
-												if ( this.getValue() )
-												{
-													var width = parseInt ( this.getValue() ) || 0;
+											validate : function () {
+												if (this.getValue()) {
+													var width = parseInt (this.getValue()) || 0;
 
-													if ( width === 0 )
-													{
-														alert( editor.lang.youtube.invalidWidth );
+													if (width === 0) {
+														alert(editor.lang.youtube.invalidWidth);
 														return false;
 													}
 												}
 												else {
-													alert( editor.lang.youtube.noWidth );
+													alert(editor.lang.youtube.noWidth);
 													return false;
 												}
 											}
@@ -138,20 +120,17 @@
 											width : '60px',
 											label : editor.lang.youtube.txtHeight,
 											'default' : editor.config.youtube_height != null ? editor.config.youtube_height : '360',
-											validate : function ()
-											{
-												if ( this.getValue() )
-												{
-													var height = parseInt ( this.getValue() ) || 0;
+											validate : function () {
+												if (this.getValue()) {
+													var height = parseInt(this.getValue()) || 0;
 
-													if ( height === 0 )
-													{
-														alert( editor.lang.youtube.invalidHeight );
+													if (height === 0) {
+														alert(editor.lang.youtube.invalidHeight);
 														return false;
 													}
 												}
 												else {
-													alert( editor.lang.youtube.noHeight );
+													alert(editor.lang.youtube.noHeight);
 													return false;
 												}
 											}
@@ -224,15 +203,12 @@
 											id : 'txtStartAt',
 											type : 'text',
 											label : editor.lang.youtube.txtStartAt,
-											validate : function ()
-											{
-												if ( this.getValue() )
-												{
+											validate : function () {
+												if (this.getValue()) {
 													var str = this.getValue();
 
-													if ( !/^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/i.test( str ) )
-													{
-														alert( editor.lang.youtube.invalidTime );
+													if (!/^(?:(?:([01]?\d|2[0-3]):)?([0-5]?\d):)?([0-5]?\d)$/i.test(str)) {
+														alert(editor.lang.youtube.invalidTime);
 														return false;
 													}
 												}
@@ -251,19 +227,17 @@
 					onOk: function()
 					{
 						var content = '';
-						var responsiveStyle='';
+						var responsiveStyle = '';
 
-						if ( this.getContentElement( 'youtubePlugin', 'txtEmbed' ).isEnabled() )
-						{
-							content = this.getValueOf( 'youtubePlugin', 'txtEmbed' );
+						if (this.getContentElement('youtubePlugin', 'txtEmbed').isEnabled()) {
+							content = this.getValueOf('youtubePlugin', 'txtEmbed');
 						}
 						else {
 							var url = 'https://', params = [], startSecs;
-							var width = this.getValueOf( 'youtubePlugin', 'txtWidth' );
-							var height = this.getValueOf( 'youtubePlugin', 'txtHeight' );
+							var width = this.getValueOf('youtubePlugin', 'txtWidth');
+							var height = this.getValueOf('youtubePlugin', 'txtHeight');
 
-							if ( this.getContentElement( 'youtubePlugin', 'chkPrivacy' ).getValue() === true )
-							{
+							if (this.getContentElement('youtubePlugin', 'chkPrivacy').getValue() === true) {
 								url += 'www.youtube-nocookie.com/';
 							}
 							else {
@@ -272,40 +246,36 @@
 
 							url += 'embed/' + video;
 
-							if ( this.getContentElement( 'youtubePlugin', 'chkRelated' ).getValue() === false )
-							{
+							if (this.getContentElement('youtubePlugin', 'chkRelated').getValue() === false) {
 								params.push('rel=0');
 							}
 
-							if ( this.getContentElement( 'youtubePlugin', 'chkAutoplay' ).getValue() === true )
-							{
+							if (this.getContentElement('youtubePlugin', 'chkAutoplay').getValue() === true) {
 								params.push('autoplay=1');
 							}
 
-							startSecs = this.getValueOf( 'youtubePlugin', 'txtStartAt' );
-							if ( startSecs ){
-								var seconds = hmsToSeconds( startSecs );
+							startSecs = this.getValueOf('youtubePlugin', 'txtStartAt');
+
+							if (startSecs) {
+								var seconds = hmsToSeconds(startSecs);
 
 								params.push('start=' + seconds);
 							}
 
-							if ( params.length > 0 )
-							{
-								url = url + '?' + params.join( '&' );
+							if (params.length > 0) {
+								url = url + '?' + params.join('&');
 							}
 
-							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
+							if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
 								content += '<div class="youtube-embed-wrapper" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden">';
 								responsiveStyle = 'style="position:absolute;top:0;left:0;width:100%;height:100%"';
 							}
 
-							if ( this.getContentElement( 'youtubePlugin', 'chkOlderCode' ).getValue() === true )
-							{
+							if (this.getContentElement('youtubePlugin', 'chkOlderCode').getValue() === true) {
 								url = url.replace('embed/', 'v/');
 								url = url.replace(/&/g, '&amp;');
 
-								if ( url.indexOf('?') === -1 )
-								{
+								if (url.indexOf('?') === -1) {
 									url += '?';
 								}
 								else {
@@ -323,8 +293,7 @@
 								content += '</object>';
 							}
 							else
-							if (this.getContentElement( 'youtubePlugin', 'chkNoEmbed' ).getValue() === true)
-							{
+							if (this.getContentElement('youtubePlugin', 'chkNoEmbed').getValue() === true) {
 								var imgSrc = '//img.youtube.com/vi/' + video + '/sddefault.jpg';
 								content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
 							}
@@ -333,12 +302,12 @@
 								content += 'frameborder="0" allowfullscreen></iframe>';
 							}
 
-							if ( this.getContentElement( 'youtubePlugin', 'chkResponsive').getValue() === true ) {
+							if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
 								content += '</div>';
 							}
 						}
 
-						var element = CKEDITOR.dom.element.createFromHtml( content );
+						var element = CKEDITOR.dom.element.createFromHtml(content);
 						var instance = this.getParentEditor();
 						instance.insertElement(element);
 					}
@@ -348,34 +317,30 @@
 	});
 })();
 
-function handleLinkChange( el, api )
-{
-    var video = ytVidId(el.getValue());
-    var time = ytVidTime(el.getValue());
+function handleLinkChange(el, api) {
+	var video = ytVidId(el.getValue());
+	var time = ytVidTime(el.getValue());
 
-    if ( el.getValue().length > 0 )
-    {
-        el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).disable();
-    }
-    else {
-        el.getDialog().getContentElement( 'youtubePlugin', 'txtEmbed' ).enable();
-    }
-
-    if ( video && time ) {
-        var seconds = timeParamToSeconds( time );
-        var hms = secondsToHms( seconds );
-        el.getDialog().getContentElement('youtubePlugin', 'txtStartAt').setValue( hms );
-    }
-}
-
-function handleEmbedChange( el, api )
-{
-	if ( el.getValue().length > 0 )
-	{
-		el.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).disable();
+	if (el.getValue().length > 0) {
+		el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
 	}
 	else {
-		el.getDialog().getContentElement( 'youtubePlugin', 'txtUrl' ).enable();
+		el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
+	}
+
+	if (video && time) {
+		var seconds = timeParamToSeconds(time);
+		var hms = secondsToHms(seconds);
+		el.getDialog().getContentElement('youtubePlugin', 'txtStartAt').setValue(hms);
+	}
+}
+
+function handleEmbedChange(el, api) {
+	if (el.getValue().length > 0) {
+		el.getDialog().getContentElement('youtubePlugin', 'txtUrl').disable();
+	}
+	else {
+		el.getDialog().getContentElement('youtubePlugin', 'txtUrl').enable();
 	}
 }
 
@@ -386,30 +351,26 @@ function handleEmbedChange( el, api )
  * @author: Stephan Schmitz <eyecatchup@gmail.com>
  * @url: http://stackoverflow.com/a/10315969/624466
  */
-function ytVidId( url )
-{
+function ytVidId(url) {
 	var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-	return ( url.match( p ) ) ? RegExp.$1 : false;
+	return (url.match(p)) ? RegExp.$1 : false;
 }
 
 /**
  * Matches and returns time param in YouTube Urls.
  */
-function ytVidTime( url )
-{
-    var p = /t=([0-9hms]+)/;
-    return ( url.match( p ) ) ? RegExp.$1 : false;
+function ytVidTime(url) {
+	var p = /t=([0-9hms]+)/;
+	return (url.match(p)) ? RegExp.$1 : false;
 }
 
 /**
  * Converts time in hms format to seconds only
  */
-function hmsToSeconds( time )
-{
+function hmsToSeconds(time) {
 	var arr = time.split(':'), s = 0, m = 1;
 
-	while (arr.length > 0)
-	{
+	while (arr.length > 0) {
 		s += m * parseInt(arr.pop(), 10);
 		m *= 60;
 	}
@@ -420,60 +381,58 @@ function hmsToSeconds( time )
 /**
  * Converts seconds to hms format
  */
-function secondsToHms( seconds )
-{
-    var h = Math.floor(seconds / 3600);
-    var m = Math.floor((seconds / 60) % 60);
-    var s = seconds % 60;
+function secondsToHms(seconds) {
+	var h = Math.floor(seconds / 3600);
+	var m = Math.floor((seconds / 60) % 60);
+	var s = seconds % 60;
 
-    var pad = function (n) {
-        n = String(n);
-        return n.length >= 2 ? n : "0" + n;
-    };
+	var pad = function (n) {
+		n = String(n);
+		return n.length >= 2 ? n : "0" + n;
+	};
 
-    if (h > 0) {
-        return pad(h) + ':' + pad(m) + ':' + pad(s);
-    } else {
-        return pad(m) + ':' + pad(s);
-    }
+	if (h > 0) {
+		return pad(h) + ':' + pad(m) + ':' + pad(s);
+	}
+	else {
+		return pad(m) + ':' + pad(s);
+	}
 }
 
 /**
  * Converts time in youtube t-param format to seconds
  */
-function timeParamToSeconds( param )
-{
-    var componentValue = function (si) {
-        var regex = new RegExp('(\\d+)' + si);
-        return param.match(regex) ? parseInt(RegExp.$1, 10) : 0;
-    };
+function timeParamToSeconds(param) {
+	var componentValue = function (si) {
+		var regex = new RegExp('(\\d+)' + si);
+		return param.match(regex) ? parseInt(RegExp.$1, 10) : 0;
+	};
 
-    return componentValue('h') * 3600
-        + componentValue('m') * 60
-        + componentValue('s');
+	return componentValue('h') * 3600
+		+ componentValue('m') * 60
+		+ componentValue('s');
 }
 
 /**
  * Converts seconds into youtube t-param value, e.g. 1h4m30s
  */
-function secondsToTimeParam( seconds )
-{
-    var h = Math.floor(seconds / 3600);
-    var m = Math.floor((seconds / 60) % 60);
-    var s = seconds % 60;
-    var param = '';
+function secondsToTimeParam(seconds) {
+	var h = Math.floor(seconds / 3600);
+	var m = Math.floor((seconds / 60) % 60);
+	var s = seconds % 60;
+	var param = '';
 
-    if (h > 0) {
-        param += h + 'h';
-    }
+	if (h > 0) {
+		param += h + 'h';
+	}
 
-    if (m > 0) {
-        param += m + 'm';
-    }
+	if (m > 0) {
+		param += m + 'm';
+	}
 
-    if (s > 0) {
-        param += s + 's';
-    }
+	if (s > 0) {
+		param += s + 's';
+	}
 
-    return param;
+	return param;
 }
