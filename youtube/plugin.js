@@ -24,7 +24,7 @@
 
 				return {
 					title : editor.lang.youtube.title,
-					minWidth : 500,
+					minWidth : 510,
 					minHeight : 200,
 					contents :
 						[{
