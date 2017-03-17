@@ -69,6 +69,12 @@ Video height:
 config.youtube_height = '480';
 ```
 
+Make responsive (ignore width and height, fit to width):
+
+```js
+config.youtube_responsive = true;
+```
+
 Show related videos:
 
 ```js
