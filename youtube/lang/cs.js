@@ -10,6 +10,7 @@
 	chkPrivacy : 'Povolit režim s rozšířeným soukromím',
 	chkOlderCode : 'Použít starý kód pro vložení',
 	chkAutoplay : 'Automatické spuštění přehrávání',
+	chkControls : 'Zobrazit ovladače přehrávání',
 	noCode : 'Musíte vložit kód pro vložení nebo adresu URL',
 	invalidEmbed : 'Vložený kód pro vložení zřejmě není platný',
 	invalidUrl : 'Zadaná adresa URL zřejmě není platná',

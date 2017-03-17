@@ -99,6 +99,12 @@ Start video automatically:
 config.youtube_autoplay = false;
 ```
 
+Show player controls:
+
+```js
+config.youtube_controls = true;
+```
+
 ## How to use
 If everything is ok, a Youtube icon should appear on the CKEditor toolbar. Click it,
 paste your embed code or video URL and the video will be inserted.

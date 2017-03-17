@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <jonnasfonini@gmail.com>
-* @version 2.1.3
+* @version 2.1.4
 */
 (function () {
 	CKEDITOR.plugins.add('youtube', {
@@ -215,9 +215,10 @@
 											}
 										},
 										{
-											id: 'empty',
-											type: 'html',
-											html: ''
+											id : 'chkControls',
+											type : 'checkbox',
+											'default' : editor.config.youtube_controls != null ? editor.config.youtube_controls : true,
+											label : editor.lang.youtube.chkControls
 										}
 									]
 								}
@@ -252,6 +253,10 @@
 
 							if (this.getContentElement('youtubePlugin', 'chkAutoplay').getValue() === true) {
 								params.push('autoplay=1');
+							}
+
+							if (this.getContentElement('youtubePlugin', 'chkControls').getValue() === false) {
+								params.push('controls=0');
 							}
 
 							startSecs = this.getValueOf('youtubePlugin', 'txtStartAt');

@@ -10,6 +10,7 @@ CKEDITOR.plugins.setLang('youtube', 'ru', {
 	chkPrivacy : 'Включить режим повышенной конфиденциальности',
 	chkOlderCode : 'Использовать старый код вставки',
 	chkAutoplay: 'Автозапуск',
+	chkControls: 'Показать панель управления',
 	noCode : 'Вы должны ввести HTML-код или адрес',
 	invalidEmbed : 'Ваш HTML-код не похож на правильный',
 	invalidUrl : 'Ваш адрес видео не похож на правильный',
