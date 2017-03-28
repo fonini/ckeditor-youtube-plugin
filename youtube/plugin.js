@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <jonnasfonini@gmail.com>
-* @version 2.1.4
+* @version 2.1.5
 */
 (function () {
 	CKEDITOR.plugins.add('youtube', {
@@ -20,12 +20,18 @@
 			});
 
 			CKEDITOR.dialog.add('youtube', function (instance) {
-				var video;
+				var video,
+					disabled = editor.config.youtube_disabled_fields || [];
 
 				return {
 					title : editor.lang.youtube.title,
 					minWidth : 510,
 					minHeight : 200,
+					onShow: function () {
+						for (var i = 0; i < disabled.length; i++) {
+							this.getContentElement('youtubePlugin', disabled[i]).disable();
+						}
+					},
 					contents :
 						[{
 							id : 'youtubePlugin',
@@ -35,7 +41,6 @@
 									id : 'txtEmbed',
 									type : 'textarea',
 									label : editor.lang.youtube.txtEmbed,
-									autofocus : 'autofocus',
 									onChange : function (api) {
 										handleEmbedChange(this, api);
 									},

@@ -105,6 +105,29 @@ Show player controls:
 config.youtube_controls = true;
 ```
 
+Disable the change of settings. The elements on the list will be disabled (but still visible).
+See the available element list below.
+
+```js
+config.youtube_disabled_fields = ['txtEmbed', 'chkAutoplay'];
+```
+
+#### List of UI elements
+
+* txtEmbed
+* txtUrl
+* txtWidth
+* txtHeight
+* chkResponsive
+* chkNoEmbed
+* chkRelated
+* chkOlderCode
+* chkPrivacy
+* chkAutoplay
+* txtStartAt
+* chkControls
+
+
 ## How to use
 If everything is ok, a Youtube icon should appear on the CKEditor toolbar. Click it,
 paste your embed code or video URL and the video will be inserted.
