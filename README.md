@@ -45,15 +45,6 @@ Follow these steps:
     config.extraPlugins = 'youtube';
     ````
 
- 4. Add the icon to the toolbar. The below code is just an example.
-
-    ````js
-    config.toolbar = [      
-        ...
-        { name: 'others', items: [ 'Youtube' ] },       
-    ];
-    ````
-    
 ## Configuration
 The default options can be overriden on config.js.
 
