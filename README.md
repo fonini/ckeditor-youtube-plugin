@@ -132,6 +132,7 @@ Thanks to those who helped translate the plugin
  * Dimitris Kotsakis (el)
  * Victor (pollin14) (es)
  * Kevin Rudissaar (et)
+ * Asier Iturralde Sarasola (eu)
  * Jami Pietilä (fi)
  * BiomanRouge (fr)
  * Moshe Simantov (he)
