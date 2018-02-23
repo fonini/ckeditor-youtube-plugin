@@ -127,6 +127,7 @@ paste your embed code or video URL and the video will be inserted.
 Thanks to those who helped translate the plugin
 
  * Eyed Farra (ar)
+ * N. Petkov (bg)
  * Lukáš Říha (cs)
  * Sven Jansen (de)
  * Dimitris Kotsakis (el)
