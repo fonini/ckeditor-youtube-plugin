@@ -20,5 +20,6 @@ CKEDITOR.plugins.setLang('youtube', 'hu', {
 	noHeight : 'A magasság megadása kötelező',
 	invalidHeight : 'Érvényes magasságot adjon meg',
 	invalidTime : 'Érvényes kezdő időpontot adjon meg',
-	txtResponsive : 'Responsive video'
+	txtResponsive : 'Reszponzív videó',
+	txtNoEmbed : 'Csak kép és hivatkozás jelenjen meg'
 });
