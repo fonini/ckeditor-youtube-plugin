@@ -239,7 +239,7 @@
 							content = this.getValueOf('youtubePlugin', 'txtEmbed');
 						}
 						else {
-							var url = 'https://', params = [], startSecs;
+							var url = 'https://', params = [], startSecs, paramAutoplay='';
 							var width = this.getValueOf('youtubePlugin', 'txtWidth');
 							var height = this.getValueOf('youtubePlugin', 'txtHeight');
 
@@ -258,6 +258,7 @@
 
 							if (this.getContentElement('youtubePlugin', 'chkAutoplay').getValue() === true) {
 								params.push('autoplay=1');
+								paramAutoplay='autoplay';
 							}
 
 							if (this.getContentElement('youtubePlugin', 'chkControls').getValue() === false) {
@@ -308,7 +309,7 @@
 								content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
 							}
 							else {
-								content += '<iframe width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
+								content += '<iframe allow="' + paramAutoplay + ';" width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
 								content += 'frameborder="0" allowfullscreen></iframe>';
 							}
 
