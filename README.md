@@ -148,6 +148,7 @@ Thanks to those who helped translate the plugin
  * Alexander Ustimenko (ru)
  * ivanbarlog (sk)
  * Çağdaş Yiğit (tr)
+ * Mykola Pukhalskyi (uk)
  * Vu Thao (vi)
  * trowa (zh)
 

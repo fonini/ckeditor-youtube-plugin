@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <jonnasfonini@gmail.com>
-* @version 2.1.12
+* @version 2.1.13
 */
 (function () {
 	CKEDITOR.plugins.add('youtube', {
