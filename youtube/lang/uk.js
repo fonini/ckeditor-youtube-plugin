@@ -21,5 +21,5 @@ CKEDITOR.plugins.setLang('youtube', 'uk', {
 	invalidHeight : 'Укажіть правильну висоту',
 	invalidTime : 'Укажіть правильний час початку',
 	txtResponsive : 'Адаптивне (таке, яке розтягується) відео',
-	txtNoEmbed : 'Додати лише обкладинку та посилання на YouTube)'
+	txtNoEmbed : 'Додати лише обкладинку та посилання на YouTube'
 });
