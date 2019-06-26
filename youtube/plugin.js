@@ -305,7 +305,7 @@
 							}
 							else
 							if (this.getContentElement('youtubePlugin', 'chkNoEmbed').getValue() === true) {
-								var imgSrc = '//img.youtube.com/vi/' + video + '/sddefault.jpg';
+								var imgSrc = 'https://img.youtube.com/vi/' + video + '/sddefault.jpg';
 								content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
 							}
 							else {
