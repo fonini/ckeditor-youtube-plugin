@@ -309,7 +309,7 @@
 								content += '<a href="' + url + '" ><img width="' + width + '" height="' + height + '" src="' + imgSrc + '" '  + responsiveStyle + '/></a>';
 							}
 							else {
-								content += '<iframe allow="' + paramAutoplay + ';" width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
+								content += '<iframe ' + (paramAutoplay ? 'allow="' + paramAutoplay + ';" ' : '') + 'width="' + width + '" height="' + height + '" src="' + url + '" ' + responsiveStyle;
 								content += 'frameborder="0" allowfullscreen></iframe>';
 							}
 
