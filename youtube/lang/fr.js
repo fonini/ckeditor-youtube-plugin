@@ -20,5 +20,6 @@ CKEDITOR.plugins.setLang('youtube', 'fr', {
 	noHeight : 'Vous devez saisir une hauteur',
 	invalidHeight : 'La hauteur saisie est invalide',
 	invalidTime : 'Le temps de départ de la vidéo est invalide',
-	txtResponsive : 'Responsive video'
+	txtResponsive : 'Responsive video',
+	txtNoEmbed : 'Vidéo image et lien seulement'
 });
