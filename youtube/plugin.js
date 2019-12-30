@@ -335,7 +335,7 @@ function handleLinkChange(el, api) {
 	if (el.getValue().length > 0) {
 		el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
 	}
-	else {
+	else if (!disabled.length || !disabled.includes('txtEmbed')) {
 		el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
 	}
 
