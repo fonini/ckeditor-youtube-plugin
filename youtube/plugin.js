@@ -2,7 +2,7 @@
 * Youtube Embed Plugin
 *
 * @author Jonnas Fonini <jonnasfonini@gmail.com>
-* @version 2.1.14
+* @version 2.1.15
 */
 (function () {
 	CKEDITOR.plugins.add('youtube', {
@@ -363,7 +363,7 @@ function handleEmbedChange(el, api) {
  * @url: http://stackoverflow.com/a/10315969/624466
  */
 function ytVidId(url) {
-	var p = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+	var p = /^(?:https?:\/\/)?(?:(?:www|m).)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
 	return (url.match(p)) ? RegExp.$1 : false;
 }
 
