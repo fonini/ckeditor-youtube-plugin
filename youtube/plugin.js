@@ -133,9 +133,9 @@
 											'default' : editor.config.youtube_width != null ? editor.config.youtube_width : '640',
 											validate : function () {
 												if (this.getValue()) {
-													var width = parseInt (this.getValue()) || 0;
+													var width = Number(this.getValue());
 
-													if (width === 0) {
+													if (isNaN(width)) {
 														alert(editor.lang.youtube.invalidWidth);
 														return false;
 													}
@@ -154,9 +154,9 @@
 											'default' : editor.config.youtube_height != null ? editor.config.youtube_height : '360',
 											validate : function () {
 												if (this.getValue()) {
-													var height = parseInt(this.getValue()) || 0;
+													var height = Number(this.getValue());
 
-													if (height === 0) {
+													if (isNaN(height)) {
 														alert(editor.lang.youtube.invalidHeight);
 														return false;
 													}
