@@ -23,6 +23,33 @@
 				var video,
 					disabled = editor.config.youtube_disabled_fields || [];
 
+				function handleLinkChange(el, api) {
+					var video = ytVidId(el.getValue());
+					var time = ytVidTime(el.getValue());
+
+					if (el.getValue().length > 0) {
+						el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
+					}
+					else if (!disabled.length || !disabled.includes('txtEmbed')) {
+						el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
+					}
+
+					if (video && time) {
+						var seconds = timeParamToSeconds(time);
+						var hms = secondsToHms(seconds);
+						el.getDialog().getContentElement('youtubePlugin', 'txtStartAt').setValue(hms);
+					}
+				}
+
+				function handleEmbedChange(el, api) {
+					if (el.getValue().length > 0) {
+						el.getDialog().getContentElement('youtubePlugin', 'txtUrl').disable();
+					}
+					else {
+						el.getDialog().getContentElement('youtubePlugin', 'txtUrl').enable();
+					}
+				}
+
 				return {
 					title : editor.lang.youtube.title,
 					minWidth : 510,
@@ -327,34 +354,6 @@
 		}
 	});
 })();
-
-function handleLinkChange(el, api) {
-	var video = ytVidId(el.getValue());
-	var time = ytVidTime(el.getValue());
-
-	if (el.getValue().length > 0) {
-		el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').disable();
-	}
-	else if (!disabled.length || !disabled.includes('txtEmbed')) {
-		el.getDialog().getContentElement('youtubePlugin', 'txtEmbed').enable();
-	}
-
-	if (video && time) {
-		var seconds = timeParamToSeconds(time);
-		var hms = secondsToHms(seconds);
-		el.getDialog().getContentElement('youtubePlugin', 'txtStartAt').setValue(hms);
-	}
-}
-
-function handleEmbedChange(el, api) {
-	if (el.getValue().length > 0) {
-		el.getDialog().getContentElement('youtubePlugin', 'txtUrl').disable();
-	}
-	else {
-		el.getDialog().getContentElement('youtubePlugin', 'txtUrl').enable();
-	}
-}
-
 
 /**
  * JavaScript function to match (and return) the video Id
