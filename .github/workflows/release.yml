@@ -1,0 +1,41 @@
+name: publish release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  # publish on NPM registry
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          registry-url: https://registry.npmjs.org/
+      - name: Publish on NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  # create gh release
+  gh-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Generate Changelog
+        uses: scottbrenner/generate-changelog-action@master
+        id: generate_changelog
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: |
+             ${{ steps.generate_changelog.outputs.changelog }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
