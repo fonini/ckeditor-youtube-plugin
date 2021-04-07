@@ -262,8 +262,13 @@
 						var content = '';
 						var responsiveStyle = '';
 
+						if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
+							content += '<div class="youtube-embed-wrapper" style="position:relative;padding-bottom:56.25%;padding-top:30px;height:0;overflow:hidden">';
+							responsiveStyle = 'style="position:absolute;top:0;left:0;width:100%;height:100%"';
+						}
+
 						if (this.getContentElement('youtubePlugin', 'txtEmbed').isEnabled()) {
-							content = this.getValueOf('youtubePlugin', 'txtEmbed');
+							content += this.getValueOf('youtubePlugin', 'txtEmbed');
 						}
 						else {
 							var url = 'https://', params = [], startSecs, paramAutoplay='';
@@ -340,9 +345,10 @@
 								content += 'frameborder="0" allowfullscreen></iframe>';
 							}
 
-							if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
-								content += '</div>';
-							}
+						}
+
+						if (this.getContentElement('youtubePlugin', 'chkResponsive').getValue() === true) {
+							content += '</div>';
 						}
 
 						var element = CKEDITOR.dom.element.createFromHtml(content);
